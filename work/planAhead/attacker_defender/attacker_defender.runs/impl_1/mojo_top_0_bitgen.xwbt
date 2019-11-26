@@ -1,0 +1,8 @@
+INTSTYLE=pa
+INFILE=/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.runs/impl_1/mojo_top_0_routed.ncd
+OUTFILE=/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.runs/impl_1/mojo_top_0.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.runs/impl_1
+LICENSE=WebPack
+USER_INFO=211807720_0_0_733

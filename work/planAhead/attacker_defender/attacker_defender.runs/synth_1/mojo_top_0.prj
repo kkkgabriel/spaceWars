@@ -1,0 +1,8 @@
+verilog work "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/shifterFunction_7.v"
+verilog work "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/cmpFunction_6.v"
+verilog work "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/boolFunction_5.v"
+verilog work "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/adderFunction_4.v"
+verilog work "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/reset_conditioner_1.v"
+verilog work "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_2.v"
+verilog work "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/alu_3.v"
+verilog work "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v"

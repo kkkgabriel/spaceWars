@@ -1,0 +1,448 @@
+module mojo_top (
+    input clk,              // 50MHz clock
+    input rst_n,            // reset button (active low)
+    input cclk,             // configuration clock, AVR ready when high
+    output spi_miso,        // AVR SPI MISO
+    input spi_ss,           // AVR SPI Slave Select
+    input spi_mosi,         // AVR SPI MOSI
+    input spi_sck,          // AVR SPI Clock
+    output spi_channel [4], // AVR general purpose pins (used by default to select ADC channel)
+    input avr_tx,           // AVR TX (FPGA RX)
+    output avr_rx,          // AVR RX (FPGA TX)
+    input avr_rx_busy,       // AVR RX buffer full
+    output led[8],
+    
+    input on_button,  // init port on on_button
+    input att1_btn1,
+    input att1_btn2,
+    input att1_btn3,
+    input att2_btn1,
+    input att2_btn2,
+    input att2_btn3, 
+    input def1_btn1,
+    input def1_btn2,
+    input def1_btn3,
+    input def2_btn1,
+    input def2_btn2,
+    input def2_btn3
+  ) {
+  
+  sig rst;                  // reset signal
+  
+  .clk(clk) {
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes out of reset at the same time.
+    reset_conditioner reset_cond;
+    
+    .rst(rst){
+      memory m; 
+      fsm state = {
+        IDLE, OFF,
+        CAL_TEMP_SCORE1, CAL_TEMP_SCORE2, FLIP_TEMP_SCORE1, FLIP_TEMP_SCORE2, ADD_SCORE1, ADD_SCORE2,
+        CAL_P1L1A_ACTION, CAL_P1L1D_ACTION, CAL_P2L1A_ACTION, CAL_P2L1D_ACTION,
+        CAL_P1L2A_ACTION, CAL_P1L2D_ACTION, CAL_P2L2A_ACTION, CAL_P2L2D_ACTION,
+        CAL_P1L3A_ACTION, CAL_P1L3D_ACTION, CAL_P2L3A_ACTION, CAL_P2L3D_ACTION,
+        CLEAR_ATT1, CLEAR_ATT2, CLEAR_DEF1, CLEAR_DEF2
+      };
+      dff sclk[26] (#INIT(0));
+    }
+  }
+  alu alu;
+  
+  always {
+    sclk.d = sclk.q + 1;
+    if (sclk.q == 50000001){
+      sclk.d = 0;
+    }
+    reset_cond.in = ~rst_n; // input raw inverted reset signal
+    rst = reset_cond.out;   // conditioned reset
+    
+    spi_miso = bz;          // not using SPI
+    spi_channel = bzzzz;    // not using flags
+    avr_rx = bz;            // not using serial port
+    
+    if (sclk.q == 50000000){
+      m.wa = 1;
+      m.ra = 1;
+      m.rb = 0;
+      m.alit = 0;
+      m.blit = 1;
+      m.asel = 0;
+      m.bsel = 1;          
+      alu.fn = b000000; // ADD
+    } else {
+      case (state.q ){
+        
+        /** ----------------- IDLE ------------------------- **/
+        state.IDLE:
+          //if (!on_button){  // IDLE -> OFF
+          if (0) {
+            m.wa = 2;
+            m.ra = 2;
+            m.rb = 0;
+            m.alit = 0;
+            m.blit = 1;
+            m.asel = 0;
+            m.bsel = 1;          
+            alu.fn = b000010; // SUB
+            state.d = state.OFF;
+            
+        /** ----------------- led increment ------------------------- **/
+        
+          } else if (m.timer == b00){  // IDLE -> CLEAR_ATT1
+            m.wa = 9;
+            m.ra = 9;
+            m.rb = 0;
+            m.alit = 0;
+            m.blit = 1;
+            m.asel = 1;
+            m.bsel = 1;          
+            alu.fn = b000000; // ADD
+            state.d = state.CLEAR_ATT1;
+            
+          } else if (m.timer == b01){  // IDLE -> IDLE
+            m.wa = 9;
+            m.ra = 9;
+            m.rb = 0;
+            m.alit = 0;
+            m.blit = 3;
+            m.asel = 1;
+            m.bsel = 1;          
+            alu.fn = b000000; // ADD
+            state.d = state.IDLE;
+            
+          } else if (m.timer == b10){  // IDLE -> IDLE
+            m.wa = 9;
+            m.ra = 9;
+            m.rb = 0;
+            m.alit = 0;
+            m.blit = 7;
+            m.asel = 1;
+            m.bsel = 1;          
+            alu.fn = b000000; // ADD
+            state.d = state.IDLE;
+            
+          } else if (m.timer == b11){  // IDLE -> CAL_TEMP_SCORE1
+            m.wa = 9;
+            m.ra = 9;
+            m.rb = 0;
+            m.alit = 0;
+            m.blit = 15;
+            m.asel = 1;
+            m.bsel = 1;          
+            alu.fn = b000000; // ADD
+            state.d = state.CAL_TEMP_SCORE1;
+        
+        /** ----------------- register player inputs ------------------------- **/
+          } else if (att1_btn1){     // IDLE -> IDLE
+            m.wa = 3;
+            m.ra = 0;
+            m.rb = 0;
+            m.alit = b100;
+            m.blit = 0;
+            m.asel = 1;
+            m.bsel = 1;        
+            alu.fn = b000000; // ADD
+            state.d = state.IDLE;
+            
+          } else if (att1_btn2){     // IDLE -> IDLE
+            m.wa = 3;
+            m.ra = 0;
+            m.rb = 0;
+            m.alit = b010;
+            m.blit = 0;
+            m.asel = 1;
+            m.bsel = 1;      
+            alu.fn = b000000; // ADD
+            state.d = state.IDLE;
+            
+          } else if (att1_btn3){     // IDLE -> IDLE
+            m.wa = 3;
+            m.ra = 0;
+            m.rb = 0;
+            m.alit = b001;
+            m.blit = 0;
+            m.asel = 1;
+            m.bsel = 1;  
+            alu.fn = b000000; // ADD
+            state.d = state.IDLE;
+            
+          } else if (def1_btn1){     // IDLE -> IDLE
+            m.wa = 4;
+            m.ra = 0;
+            m.rb = 0;
+            m.alit = b100;
+            m.blit = 0;
+            m.asel = 1;
+            m.bsel = 1;   
+            alu.fn = b000000; // ADD
+            state.d = state.IDLE;
+            
+          } else if (def1_btn2){     // IDLE -> IDLE
+            m.wa = 4;
+            m.ra = 0;
+            m.rb = 0;
+            m.alit = b010;
+            m.blit = 0;
+            m.asel = 1;
+            m.bsel = 1;   
+            alu.fn = b000000; // ADD
+            state.d = state.IDLE;
+            
+          } else if (def1_btn3){     // IDLE -> IDLE
+            m.wa = 4;
+            m.ra = 0;
+            m.rb = 0;
+            m.alit = b001;
+            m.blit = 0;
+            m.asel = 1;
+            m.bsel = 1;   
+            alu.fn = b000000; // ADD
+            state.d = state.IDLE;
+            
+          } else if (att2_btn1){     // IDLE -> IDLE
+            m.wa = 6;
+            m.ra = 0;
+            m.rb = 0;
+            m.alit = b100;
+            m.blit = 0;
+            m.asel = 1;
+            m.bsel = 1;   
+            alu.fn = b000000; // ADD
+            state.d = state.IDLE;
+            
+          } else if (att2_btn2){     // IDLE -> IDLE
+            m.wa = 6;
+            m.ra = 0;
+            m.rb = 0;
+            m.alit = b010;
+            m.blit = 0;
+            m.asel = 1;
+            m.bsel = 1;   
+            alu.fn = b000000; // ADD
+            state.d = state.IDLE;
+            
+          } else if (att2_btn3){     // IDLE -> IDLE
+            m.wa = 6;
+            m.ra = 0;
+            m.rb = 0;
+            m.alit = b001;
+            m.blit = 0;
+            m.asel = 1;
+            m.bsel = 1;   
+            alu.fn = b000000; // ADD
+            state.d = state.IDLE;
+            
+          } else if (def2_btn1){     // IDLE -> IDLE
+            m.wa = 7;
+            m.ra = 0;
+            m.rb = 0;
+            m.alit = b100;
+            m.blit = 0;
+            m.asel = 1;
+            m.bsel = 1; 
+            alu.fn = b000000; // ADD
+            state.d = state.IDLE;
+            
+          } else if (def2_btn2){     // IDLE -> IDLE
+            m.wa = 7;
+            m.ra = 0;
+            m.rb = 0;
+            m.alit = b010;
+            m.blit = 0;
+            m.asel = 1;
+            m.bsel = 1;          
+            alu.fn = b000000; // ADD
+            state.d = state.IDLE;
+            
+          } else if (def2_btn3){     // IDLE -> IDLE
+            m.wa = 7;
+            m.ra = 0;
+            m.rb = 0;
+            m.alit = b001;
+            m.blit = 0;
+            m.asel = 1;
+            m.bsel = 1;        
+            alu.fn = b000000; // ADD
+            state.d = state.IDLE;
+            
+          } else {
+            m.wa = 15;
+            m.ra = 15;
+            m.rb = 15;
+            m.alit = 0;
+            m.blit = 0;
+            m.asel = 0;
+            m.bsel = 0;      
+            alu.fn = b000000; // ADD
+            state.d = state.IDLE;
+            
+          }
+   
+          
+        /** ---------------- score calculation ------------------ **/
+        state.CAL_TEMP_SCORE1:
+          m.wa = 10;
+          m.ra = 3;
+          m.rb = 7;
+          m.alit = 0;
+          m.blit = 0;
+          m.asel = 0;
+          m.bsel = 0;
+          alu.fn = b110010; // CMPEQ
+          state.d = state.CAL_TEMP_SCORE2;
+          
+        state.CAL_TEMP_SCORE2:
+          m.wa = 11;
+          m.ra = 6;
+          m.rb = 4;
+          m.alit = 0;
+          m.blit = 0;
+          m.asel = 0;
+          m.bsel = 0;
+          alu.fn = b110010; // CMPEQ
+          state.d = state.FLIP_TEMP_SCORE1;
+          
+        state.FLIP_TEMP_SCORE1:
+          m.wa = 10;
+          m.ra = 10;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 1;
+          m.asel = 0;
+          m.bsel = 1;
+            alu.fn = b010110; // bool_XOR
+          state.d = state.FLIP_TEMP_SCORE2;
+          
+        state.FLIP_TEMP_SCORE2:
+          m.wa = 11;
+          m.ra = 11;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 1;
+          m.asel = 0;
+          m.bsel = 1;
+            alu.fn = b010110; // bool_XOR
+          state.d = state.ADD_SCORE1;
+          
+        state.ADD_SCORE1:
+          m.wa = 5;
+          m.ra = 5;
+          m.rb = 10;
+          m.alit = 0;
+          m.blit = 0;
+          m.asel = 0;
+          m.bsel = 0;
+          alu.fn = b000000; // ADD
+          state.d = state.ADD_SCORE2;
+          
+        state.ADD_SCORE2:
+          m.wa = 8;
+          m.ra = 8;
+          m.rb = 11;
+          m.alit = 0;
+          m.blit = 0;
+          m.asel = 0;
+          m.bsel = 0;
+          alu.fn = b000000; // ADD
+          state.d = state.CAL_P1L1A_ACTION;  // next state to be changed aft finding out how led strips work
+          
+        state.CAL_P1L1A_ACTION:
+          state.d = state.CAL_P1L1D_ACTION;
+          
+        state.CAL_P1L1D_ACTION:
+          state.d = state.CAL_P2L1A_ACTION;
+          
+        state.CAL_P2L1A_ACTION:
+          state.d = state.CAL_P2L1D_ACTION;
+          
+        state.CAL_P2L1D_ACTION:    
+          state.d = state.CAL_P1L2A_ACTION;
+          
+        state.CAL_P1L2A_ACTION:
+          state.d = state.CAL_P1L2D_ACTION;
+          
+        state.CAL_P1L2D_ACTION:
+          state.d = state.CAL_P2L2A_ACTION;
+          
+        state.CAL_P2L2A_ACTION:
+          state.d = state.CAL_P2L2D_ACTION;
+          
+        state.CAL_P2L2D_ACTION:
+          state.d = state.CAL_P1L3A_ACTION;
+          
+        state.CAL_P1L3A_ACTION:
+          state.d = state.CAL_P1L3D_ACTION;
+          
+        state.CAL_P1L3D_ACTION:
+          state.d = state.CAL_P2L3A_ACTION;
+          
+        state.CAL_P2L3A_ACTION:
+          state.d = state.CAL_P2L3D_ACTION;
+          
+        state.CAL_P2L3D_ACTION:        
+          state.d = state.IDLE;
+          
+        /** ----------------- resetiing player inputs after round ------------------------- **/
+        state.CLEAR_ATT1:
+          m.wa = 3;
+          m.ra = 3;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 3;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b100001; // SHR
+          state.d = state.CLEAR_ATT2;
+          
+        state.CLEAR_ATT2:
+          m.wa = 6;
+          m.ra = 6;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 3;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b100001; // SHR
+          state.d = state.CLEAR_DEF1;
+          
+        state.CLEAR_DEF1:
+          m.wa = 4;
+          m.ra = 4;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 3;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b100001; // SHR
+          state.d = state.CLEAR_DEF2;
+          
+        state.CLEAR_DEF2:
+          m.wa = 7;
+          m.ra = 7;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 3;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b100001; // SHR
+          state.d = state.IDLE;
+          
+        default:
+          m.wa = 15;
+          m.ra = 15;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 0;
+          m.asel = 0;
+          m.bsel = 0;
+            alu.fn = b000000; // ADD
+          state.d = state.IDLE;
+      }
+    }
+    alu.a = m.aout;
+    alu.b = m.bout;
+    led = c{m.leds, b00, m.timer};
+    m.wd = alu.result;
+  }
+}

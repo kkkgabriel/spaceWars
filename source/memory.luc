@@ -1,0 +1,37 @@
+module memory (
+    input clk,  // clock
+    input rst,  // reset
+    input wd[16],
+    input wa[4],
+    input ra[4],
+    input rb[4],
+    input alit[16],
+    input blit[16],
+    input asel[1],
+    input bsel[1],
+    output aout[16],
+    output bout[16],
+    output timer[2],
+    output leds[4]
+  ) {
+  
+  .clk(clk), .rst(rst){
+    dff reg[15][16];
+  }
+
+  always {
+    reg.d[wa] = wd;
+    if ( asel ){
+      aout = alit;
+    } else {
+      aout = reg.q[ra];
+    }
+    if ( bsel ){
+      bout = blit;
+    } else {
+      bout = reg.q[rb];
+    }
+    timer = reg.q[1][1:0];
+    leds = reg.q[9][3:0];
+  }
+}
