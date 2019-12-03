@@ -55,21 +55,27 @@ Netlist Hierarchy                  : rebuilt
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/shifterFunction_7.v" into library work
-Parsing module <shifterFunction_7>.
-Analyzing Verilog file "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/cmpFunction_6.v" into library work
-Parsing module <cmpFunction_6>.
-Analyzing Verilog file "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/boolFunction_5.v" into library work
-Parsing module <boolFunction_5>.
-Analyzing Verilog file "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/adderFunction_4.v" into library work
-Parsing module <adderFunction_4>.
-Analyzing Verilog file "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/reset_conditioner_1.v" into library work
+Analyzing Verilog file "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/shifterFunction_21.v" into library work
+Parsing module <shifterFunction_21>.
+Analyzing Verilog file "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/ledmanager_12.v" into library work
+Parsing module <ledmanager_12>.
+Analyzing Verilog file "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/cmpFunction_20.v" into library work
+Parsing module <cmpFunction_20>.
+Analyzing Verilog file "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/boolFunction_19.v" into library work
+Parsing module <boolFunction_19>.
+Analyzing Verilog file "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/adderFunction_18.v" into library work
+Parsing module <adderFunction_18>.
+Analyzing Verilog file "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/seven_seg_9.v" into library work
+Parsing module <seven_seg_9>.
+Analyzing Verilog file "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/reset_conditioner_1.v" into library work
 Parsing module <reset_conditioner_1>.
-Analyzing Verilog file "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_2.v" into library work
-Parsing module <memory_2>.
-Analyzing Verilog file "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/alu_3.v" into library work
-Parsing module <alu_3>.
-Analyzing Verilog file "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v" into library work
+Analyzing Verilog file "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_8.v" into library work
+Parsing module <memory_8>.
+Analyzing Verilog file "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/animations_manager_2.v" into library work
+Parsing module <animations_manager_2>.
+Analyzing Verilog file "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/alu_11.v" into library work
+Parsing module <alu_11>.
+Analyzing Verilog file "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v" into library work
 Parsing module <mojo_top_0>.
 
 =========================================================================
@@ -80,152 +86,253 @@ Elaborating module <mojo_top_0>.
 
 Elaborating module <reset_conditioner_1>.
 
-Elaborating module <memory_2>.
+Elaborating module <animations_manager_2>.
 
-Elaborating module <alu_3>.
+Elaborating module <ledmanager_12>.
+WARNING:HDLCompiler:295 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/ledmanager_12.v" Line 51: case condition never applies
+WARNING:HDLCompiler:295 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/ledmanager_12.v" Line 54: case condition never applies
+WARNING:HDLCompiler:295 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/ledmanager_12.v" Line 57: case condition never applies
+WARNING:HDLCompiler:1127 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/ledmanager_12.v" Line 38: Assignment to alpha ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/ledmanager_12.v" Line 181: Assignment to M_already_running_q ignored, since the identifier is never used
 
-Elaborating module <adderFunction_4>.
+Elaborating module <memory_8>.
+WARNING:HDLCompiler:413 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_8.v" Line 199: Result of 16-bit expression is truncated to fit in 2-bit target.
+WARNING:HDLCompiler:413 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_8.v" Line 202: Result of 16-bit expression is truncated to fit in 3-bit target.
+WARNING:HDLCompiler:413 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_8.v" Line 205: Result of 16-bit expression is truncated to fit in 3-bit target.
+WARNING:HDLCompiler:413 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_8.v" Line 208: Result of 16-bit expression is truncated to fit in 3-bit target.
+WARNING:HDLCompiler:413 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_8.v" Line 211: Result of 16-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_8.v" Line 214: Result of 16-bit expression is truncated to fit in 3-bit target.
+WARNING:HDLCompiler:413 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_8.v" Line 217: Result of 16-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_8.v" Line 220: Result of 16-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_8.v" Line 223: Result of 16-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_8.v" Line 226: Result of 16-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_8.v" Line 229: Result of 16-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_8.v" Line 232: Result of 16-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_8.v" Line 235: Result of 16-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_8.v" Line 238: Result of 16-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:413 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_8.v" Line 241: Result of 16-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:413 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_8.v" Line 244: Result of 16-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:1127 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 179: Assignment to M_m_leds ignored, since the identifier is never used
 
-Elaborating module <boolFunction_5>.
+Elaborating module <seven_seg_9>.
 
-Elaborating module <cmpFunction_6>.
+Elaborating module <alu_11>.
 
-Elaborating module <shifterFunction_7>.
-WARNING:HDLCompiler:1127 - "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 114: Assignment to M_alu_z ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 115: Assignment to M_alu_v ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 116: Assignment to M_alu_n ignored, since the identifier is never used
+Elaborating module <adderFunction_18>.
+
+Elaborating module <boolFunction_19>.
+
+Elaborating module <cmpFunction_20>.
+
+Elaborating module <shifterFunction_21>.
+WARNING:HDLCompiler:1127 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 271: Assignment to M_alu_z ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 272: Assignment to M_alu_v ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 273: Assignment to M_alu_n ignored, since the identifier is never used
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <mojo_top_0>.
-    Related source file is "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v".
+    Related source file is "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v".
 WARNING:Xst:647 - Input <cclk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <spi_ss> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <spi_mosi> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <spi_sck> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <avr_tx> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <avr_rx_busy> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <on_button> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v" line 109: Output port <z> of the instance <alu> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v" line 109: Output port <v> of the instance <alu> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v" line 109: Output port <n> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v" line 164: Output port <leds> of the instance <m> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v" line 266: Output port <z> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v" line 266: Output port <v> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/mojo_top_0.v" line 266: Output port <n> of the instance <alu> is unconnected or connected to loadless signal.
+    Found 6-bit register for signal <M_state_q>.
     Found 26-bit register for signal <M_sclk_q>.
-    Found 5-bit register for signal <M_state_q>.
     Found finite state machine <FSM_0> for signal <M_state_q>.
     -----------------------------------------------------------------------
-    | States             | 23                                             |
-    | Transitions        | 49                                             |
-    | Inputs             | 3                                              |
-    | Outputs            | 24                                             |
+    | States             | 46                                             |
+    | Transitions        | 97                                             |
+    | Inputs             | 6                                              |
+    | Outputs            | 11                                             |
     | Clock              | clk (rising_edge)                              |
     | Reset              | M_reset_cond_out (positive)                    |
     | Reset type         | synchronous                                    |
-    | Reset State        | 00000                                          |
-    | Power Up State     | 00000                                          |
+    | Reset State        | 000000                                         |
+    | Power Up State     | 000000                                         |
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 26-bit adder for signal <M_sclk_q[25]_GND_1_o_add_0_OUT> created at line 123.
-    Found 1-bit tristate buffer for signal <spi_miso> created at line 119
-    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 119
-    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 119
-    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 119
-    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 119
-    Found 1-bit tristate buffer for signal <avr_rx> created at line 119
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_wa<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_wa<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_ra<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_ra<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_ra<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_ra<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_rb<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_rb<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_rb<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_rb<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_alit<15>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_alit<14>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_alit<13>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_alit<12>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_alit<11>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_alit<10>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_alit<9>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_alit<8>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_alit<7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_alit<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_alit<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_alit<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_alit<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_alit<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_alit<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_alit<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_blit<15>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_blit<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_blit<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_blit<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_blit<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_asel>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_bsel>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_alu_fn<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_alu_fn<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_alu_fn<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_alu_fn<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_wa<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <M_m_wa<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 26-bit adder for signal <M_sclk_d> created at line 280.
+    Found 1-bit tristate buffer for signal <spi_miso> created at line 276
+    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 276
+    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 276
+    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 276
+    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 276
+    Found 1-bit tristate buffer for signal <avr_rx> created at line 276
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  26 D-type flip-flop(s).
-	inferred  39 Latch(s).
-	inferred  12 Multiplexer(s).
+	inferred 119 Multiplexer(s).
 	inferred   6 Tristate(s).
 	inferred   1 Finite State Machine(s).
 Unit <mojo_top_0> synthesized.
 
 Synthesizing Unit <reset_conditioner_1>.
-    Related source file is "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/reset_conditioner_1.v".
+    Related source file is "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/reset_conditioner_1.v".
     Found 4-bit register for signal <M_stage_q>.
     Summary:
 	inferred   4 D-type flip-flop(s).
 Unit <reset_conditioner_1> synthesized.
 
-Synthesizing Unit <memory_2>.
-    Related source file is "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_2.v".
-    Found 240-bit register for signal <M_reg_q>.
-    Found 8-bit adder for signal <wa[3]_GND_3_o_add_0_OUT> created at line 31.
-    Found 8-bit adder for signal <ra[3]_GND_3_o_add_255_OUT> created at line 35.
-    Found 8-bit adder for signal <rb[3]_GND_3_o_add_258_OUT> created at line 40.
-    Found 479-bit shifter logical right for signal <n0537> created at line 35
-    Found 479-bit shifter logical right for signal <n0539> created at line 40
+Synthesizing Unit <animations_manager_2>.
+    Related source file is "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/animations_manager_2.v".
+    Found 3-bit register for signal <M_bangsequence_q>.
+    Found 90-bit register for signal <M_timeanimed_q>.
+    Found 3-bit register for signal <M_blinking_counter_q>.
+    Found 2-bit register for signal <M_strip_state_q>.
+    Found finite state machine <FSM_1> for signal <M_bangsequence_q>.
+    -----------------------------------------------------------------------
+    | States             | 7                                              |
+    | Transitions        | 34                                             |
+    | Inputs             | 10                                             |
+    | Outputs            | 24                                             |
+    | Clock              | clk (rising_edge)                              |
+    | Power Up State     | 000                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 3-bit adder for signal <M_blinking_counter_q[2]_GND_3_o_add_13_OUT> created at line 143.
+    Found 90-bit adder for signal <M_timeanimed_q[89]_GND_3_o_add_82_OUT> created at line 355.
+    Found 8x2-bit Read Only RAM for signal <M_strip_state_d>
+    Found 90-bit 4-to-1 multiplexer for signal <M_timeanimed_d> created at line 103.
+    Found 1-bit 4-to-1 multiplexer for signal <M_strip_state_q[1]_M_bangsequence_q[2]_Mux_102_o> created at line 103.
+    Found 1-bit 4-to-1 multiplexer for signal <M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o> created at line 103.
+    Found 1-bit 3-to-1 multiplexer for signal <M_strip_state_q[1]_M_bangsequence_q[2]_Mux_4006_o> created at line 103.
+    Found 1-bit 3-to-1 multiplexer for signal <M_strip_state_q[1]_M_bangsequence_q[2]_Mux_4070_o> created at line 103.
+    Found 1-bit 4-to-1 multiplexer for signal <M_strip_state_q[1]_M_bangsequence_q[2]_Mux_5542_o> created at line 103.
+    Found 1-bit 4-to-1 multiplexer for signal <M_strip_state_q[1]_M_bangsequence_q[2]_Mux_5606_o> created at line 103.
+    Found 1-bit 4-to-1 multiplexer for signal <M_strip_state_q[1]_M_bangsequence_q[2]_Mux_7654_o> created at line 103.
+    Found 1-bit 4-to-1 multiplexer for signal <M_strip_state_q[1]_M_bangsequence_q[2]_Mux_7718_o> created at line 103.
+    Found 1-bit 4-to-1 multiplexer for signal <M_strip_state_q[1]_M_bangsequence_q[2]_Mux_7782_o> created at line 103.
+    Found 1-bit 4-to-1 multiplexer for signal <M_strip_state_q[1]_M_bangsequence_q[2]_Mux_8102_o> created at line 103.
+    Found 1-bit 4-to-1 multiplexer for signal <M_strip_state_q[1]_M_bangsequence_q[2]_Mux_8150_o> created at line 103.
+WARNING:Xst:737 - Found 1-bit latch for signal <M_ledmanager_sequence<702>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <M_ledmanager_sequence<568>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <M_ledmanager_sequence<560>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <M_ledmanager_sequence<552>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <M_ledmanager_sequence<472>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <M_ledmanager_sequence<464>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <M_ledmanager_sequence<136>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <M_ledmanager_sequence<128>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <M_ledmanager_sequence<120>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <M_ledmanager_sequence<40>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <M_ledmanager_sequence<32>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <M_ledmanager_sequence<24>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <M_ledmanager_animation_delay<12>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <M_ledmanager_animation_delay<8>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <M_ledmanager_animation_delay<7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <M_ledmanager_update>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     Summary:
-	inferred   3 Adder/Subtractor(s).
-	inferred 240 D-type flip-flop(s).
-	inferred 257 Multiplexer(s).
-	inferred   2 Combinational logic shifter(s).
-Unit <memory_2> synthesized.
+	inferred   1 RAM(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  95 D-type flip-flop(s).
+	inferred  16 Latch(s).
+	inferred  47 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <animations_manager_2> synthesized.
 
-Synthesizing Unit <alu_3>.
-    Related source file is "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/alu_3.v".
+Synthesizing Unit <ledmanager_12>.
+    Related source file is "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/ledmanager_12.v".
+WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 11-bit register for signal <M_physical_tracker_q>.
+    Found 1-bit register for signal <M_pwm_status_q>.
+    Found 8-bit register for signal <M_pixel_overall_count_q>.
+    Found 3-bit register for signal <M_state_q>.
+    Found 60-bit register for signal <M_timer_q>.
+    Found finite state machine <FSM_2> for signal <M_state_q>.
+    -----------------------------------------------------------------------
+    | States             | 6                                              |
+    | Transitions        | 14                                             |
+    | Inputs             | 8                                              |
+    | Outputs            | 4                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Power Up State     | 000                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 11-bit adder for signal <M_physical_tracker_q[10]_GND_4_o_add_6_OUT> created at line 87.
+    Found 60-bit adder for signal <M_timer_q[59]_GND_4_o_add_15_OUT> created at line 101.
+    Found 8-bit adder for signal <M_pixel_overall_count_q[7]_GND_4_o_add_17_OUT> created at line 104.
+    Found 1919-bit shifter logical right for signal <n0055> created at line 66
+    Found 5x8-bit multiplier for signal <n0061> created at line 92.
+    Found 60-bit comparator greater for signal <GND_4_o_M_timer_q[59]_LessThan_3_o> created at line 78
+    Found 60-bit comparator greater for signal <n0003> created at line 85
+    Found 11-bit comparator equal for signal <M_physical_tracker_q[10]_PWR_4_o_equal_12_o> created at line 92
+    Found 60-bit comparator greater for signal <animation_delay[59]_M_timer_q[59]_LessThan_17_o> created at line 102
+    Found 8-bit comparator greater for signal <n0017> created at line 105
+    Found 60-bit comparator greater for signal <GND_4_o_M_timer_q[59]_LessThan_34_o> created at line 133
+    Summary:
+	inferred   1 Multiplier(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred  80 D-type flip-flop(s).
+	inferred   6 Comparator(s).
+	inferred  10 Multiplexer(s).
+	inferred   1 Combinational logic shifter(s).
+	inferred   1 Finite State Machine(s).
+Unit <ledmanager_12> synthesized.
+
+Synthesizing Unit <memory_8>.
+    Related source file is "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/memory_8.v".
+WARNING:Xst:647 - Input <wd<15:5>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 3-bit register for signal <M_ratt1_q>.
+    Found 3-bit register for signal <M_rdef1_q>.
+    Found 3-bit register for signal <M_ratt2_q>.
+    Found 3-bit register for signal <M_rdef2_q>.
+    Found 4-bit register for signal <M_rs1_q>.
+    Found 4-bit register for signal <M_rs2_q>.
+    Found 4-bit register for signal <M_rled_q>.
+    Found 1-bit register for signal <M_rt_s1_q>.
+    Found 1-bit register for signal <M_rt_s2_q>.
+    Found 4-bit register for signal <M_rl1_q>.
+    Found 4-bit register for signal <M_rl2_q>.
+    Found 4-bit register for signal <M_rl3_q>.
+    Found 1-bit register for signal <M_rstart_q>.
+    Found 5-bit register for signal <M_temp1_q>.
+    Found 5-bit register for signal <M_temp2_q>.
+    Found 2-bit register for signal <M_rtimer_q>.
+    Summary:
+	inferred  51 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+Unit <memory_8> synthesized.
+
+Synthesizing Unit <seven_seg_9>.
+    Related source file is "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/seven_seg_9.v".
+    Found 16x7-bit Read Only RAM for signal <segs>
+    Summary:
+	inferred   1 RAM(s).
+Unit <seven_seg_9> synthesized.
+
+Synthesizing Unit <alu_11>.
+    Related source file is "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/alu_11.v".
     Found 16-bit 4-to-1 multiplexer for signal <result> created at line 89.
     Summary:
 	inferred   1 Multiplexer(s).
-Unit <alu_3> synthesized.
+Unit <alu_11> synthesized.
 
-Synthesizing Unit <adderFunction_4>.
-    Related source file is "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/adderFunction_4.v".
+Synthesizing Unit <adderFunction_18>.
+    Related source file is "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/adderFunction_18.v".
     Found 16-bit subtractor for signal <a[15]_b[15]_sub_2_OUT> created at line 29.
     Found 16-bit adder for signal <a[15]_b[15]_add_0_OUT> created at line 25.
     Found 16x16-bit multiplier for signal <n0030> created at line 33.
     Found 16-bit 4-to-1 multiplexer for signal <temp> created at line 23.
-    Found 1-bit 3-to-1 multiplexer for signal <v> created at line 23.
+    Found 1-bit 4-to-1 multiplexer for signal <v> created at line 23.
     Summary:
 	inferred   1 Multiplier(s).
 	inferred   2 Adder/Subtractor(s).
 	inferred   2 Multiplexer(s).
-Unit <adderFunction_4> synthesized.
+Unit <adderFunction_18> synthesized.
 
-Synthesizing Unit <boolFunction_5>.
-    Related source file is "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/boolFunction_5.v".
+Synthesizing Unit <boolFunction_19>.
+    Related source file is "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/boolFunction_19.v".
     Found 1-bit 4-to-1 multiplexer for signal <res<0>> created at line 11.
     Found 1-bit 4-to-1 multiplexer for signal <res<1>> created at line 11.
     Found 1-bit 4-to-1 multiplexer for signal <res<2>> created at line 11.
@@ -244,17 +351,17 @@ Synthesizing Unit <boolFunction_5>.
     Found 1-bit 4-to-1 multiplexer for signal <res<15>> created at line 11.
     Summary:
 	inferred  16 Multiplexer(s).
-Unit <boolFunction_5> synthesized.
+Unit <boolFunction_19> synthesized.
 
-Synthesizing Unit <cmpFunction_6>.
-    Related source file is "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/cmpFunction_6.v".
+Synthesizing Unit <cmpFunction_20>.
+    Related source file is "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/cmpFunction_20.v".
     Found 1-bit 4-to-1 multiplexer for signal <temp> created at line 21.
     Summary:
 	inferred   1 Multiplexer(s).
-Unit <cmpFunction_6> synthesized.
+Unit <cmpFunction_20> synthesized.
 
-Synthesizing Unit <shifterFunction_7>.
-    Related source file is "/root/mojo/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/shifterFunction_7.v".
+Synthesizing Unit <shifterFunction_21>.
+    Related source file is "/home/kkk/Desktop/attacker_defender_backup/attacker_defender/work/planAhead/attacker_defender/attacker_defender.srcs/sources_1/imports/verilog/shifterFunction_21.v".
 WARNING:Xst:647 - Input <b<15:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 16-bit shifter logical right for signal <a[15]_b[3]_shift_right_1_OUT> created at line 23
     Found 16-bit shifter arithmetic right for signal <a[15]_b[3]_shift_right_2_OUT> created at line 26
@@ -263,53 +370,65 @@ WARNING:Xst:647 - Input <b<15:4>> is never used. This port will be preserved and
     Summary:
 	inferred   1 Multiplexer(s).
 	inferred   3 Combinational logic shifter(s).
-Unit <shifterFunction_7> synthesized.
+Unit <shifterFunction_21> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Multipliers                                          : 1
+# RAMs                                                 : 8
+ 16x7-bit single-port Read Only RAM                    : 2
+ 8x2-bit single-port Read Only RAM                     : 6
+# Multipliers                                          : 7
  16x16-bit multiplier                                  : 1
-# Adders/Subtractors                                   : 6
+ 8x5-bit multiplier                                    : 6
+# Adders/Subtractors                                   : 33
+ 11-bit adder                                          : 6
  16-bit adder                                          : 1
  16-bit subtractor                                     : 1
  26-bit adder                                          : 1
- 8-bit adder                                           : 3
-# Registers                                            : 3
- 240-bit register                                      : 1
+ 3-bit adder                                           : 6
+ 60-bit adder                                          : 6
+ 8-bit adder                                           : 6
+ 90-bit adder                                          : 6
+# Registers                                            : 60
+ 1-bit register                                        : 9
+ 11-bit register                                       : 6
+ 2-bit register                                        : 7
  26-bit register                                       : 1
- 4-bit register                                        : 1
-# Latches                                              : 39
- 1-bit latch                                           : 39
-# Multiplexers                                         : 290
- 1-bit 2-to-1 multiplexer                              : 14
- 1-bit 3-to-1 multiplexer                              : 1
- 1-bit 4-to-1 multiplexer                              : 17
- 10-bit 2-to-1 multiplexer                             : 2
- 11-bit 2-to-1 multiplexer                             : 2
- 12-bit 2-to-1 multiplexer                             : 2
- 13-bit 2-to-1 multiplexer                             : 2
- 14-bit 2-to-1 multiplexer                             : 2
- 15-bit 2-to-1 multiplexer                             : 2
- 16-bit 2-to-1 multiplexer                             : 227
+ 3-bit register                                        : 10
+ 4-bit register                                        : 7
+ 5-bit register                                        : 2
+ 60-bit register                                       : 6
+ 8-bit register                                        : 6
+ 90-bit register                                       : 6
+# Latches                                              : 96
+ 1-bit latch                                           : 96
+# Comparators                                          : 36
+ 11-bit comparator equal                               : 6
+ 60-bit comparator greater                             : 24
+ 8-bit comparator greater                              : 6
+# Multiplexers                                         : 484
+ 1-bit 2-to-1 multiplexer                              : 117
+ 1-bit 3-to-1 multiplexer                              : 12
+ 1-bit 4-to-1 multiplexer                              : 72
+ 11-bit 2-to-1 multiplexer                             : 18
+ 16-bit 2-to-1 multiplexer                             : 29
  16-bit 4-to-1 multiplexer                             : 3
- 2-bit 2-to-1 multiplexer                              : 2
- 3-bit 2-to-1 multiplexer                              : 2
- 4-bit 2-to-1 multiplexer                              : 2
- 5-bit 2-to-1 multiplexer                              : 2
- 6-bit 2-to-1 multiplexer                              : 2
- 7-bit 2-to-1 multiplexer                              : 2
- 8-bit 2-to-1 multiplexer                              : 2
- 9-bit 2-to-1 multiplexer                              : 2
-# Logic shifters                                       : 5
+ 5-bit 2-to-1 multiplexer                              : 70
+ 6-bit 2-to-1 multiplexer                              : 1
+ 60-bit 2-to-1 multiplexer                             : 30
+ 8-bit 2-to-1 multiplexer                              : 12
+ 90-bit 2-to-1 multiplexer                             : 114
+ 90-bit 4-to-1 multiplexer                             : 6
+# Logic shifters                                       : 9
  16-bit shifter arithmetic right                       : 1
  16-bit shifter logical left                           : 1
  16-bit shifter logical right                          : 1
- 479-bit shifter logical right                         : 2
+ 1919-bit shifter logical right                        : 6
 # Tristates                                            : 6
  1-bit tristate buffer                                 : 6
-# FSMs                                                 : 1
+# FSMs                                                 : 13
 # Xors                                                 : 1
  1-bit xor2                                            : 1
 
@@ -320,50 +439,85 @@ Macro Statistics
 =========================================================================
 
 
+Synthesizing (advanced) Unit <animations_manager_2>.
+The following registers are absorbed into counter <M_blinking_counter_q>: 1 register on signal <M_blinking_counter_q>.
+INFO:Xst:3212 - HDL ADVISOR - Asynchronous or synchronous initialization of the register <M_rl1_q> prevents it from being combined with the RAM <Mram_M_strip_state_d> for implementation as read-only block RAM.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 2-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <game_state>    |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <M_strip_state_d> |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3231 - The small RAM <Mram_M_strip_state_d> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+Unit <animations_manager_2> synthesized (advanced).
+
 Synthesizing (advanced) Unit <mojo_top_0>.
 The following registers are absorbed into counter <M_sclk_q>: 1 register on signal <M_sclk_q>.
 Unit <mojo_top_0> synthesized (advanced).
+
+Synthesizing (advanced) Unit <seven_seg_9>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_segs> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16-word x 7-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <char>          |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <segs>          |          |
+    -----------------------------------------------------------------------
+Unit <seven_seg_9> synthesized (advanced).
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Multipliers                                          : 1
+# RAMs                                                 : 8
+ 16x7-bit single-port distributed Read Only RAM        : 2
+ 8x2-bit single-port distributed Read Only RAM         : 6
+# Multipliers                                          : 7
  16x16-bit multiplier                                  : 1
-# Adders/Subtractors                                   : 5
+ 8x5-bit multiplier                                    : 6
+# Adders/Subtractors                                   : 26
+ 11-bit adder                                          : 6
  16-bit adder                                          : 1
  16-bit subtractor                                     : 1
- 8-bit adder                                           : 3
-# Counters                                             : 1
+ 60-bit adder                                          : 6
+ 8-bit adder                                           : 6
+ 90-bit adder                                          : 6
+# Counters                                             : 7
  26-bit up counter                                     : 1
-# Registers                                            : 244
- Flip-Flops                                            : 244
-# Multiplexers                                         : 290
- 1-bit 2-to-1 multiplexer                              : 14
- 1-bit 3-to-1 multiplexer                              : 1
- 1-bit 4-to-1 multiplexer                              : 17
- 10-bit 2-to-1 multiplexer                             : 2
- 11-bit 2-to-1 multiplexer                             : 2
- 12-bit 2-to-1 multiplexer                             : 2
- 13-bit 2-to-1 multiplexer                             : 2
- 14-bit 2-to-1 multiplexer                             : 2
- 15-bit 2-to-1 multiplexer                             : 2
- 16-bit 2-to-1 multiplexer                             : 227
+ 3-bit up counter                                      : 6
+# Registers                                            : 1087
+ Flip-Flops                                            : 1087
+# Comparators                                          : 36
+ 11-bit comparator equal                               : 6
+ 60-bit comparator greater                             : 24
+ 8-bit comparator greater                              : 6
+# Multiplexers                                         : 484
+ 1-bit 2-to-1 multiplexer                              : 117
+ 1-bit 3-to-1 multiplexer                              : 12
+ 1-bit 4-to-1 multiplexer                              : 72
+ 11-bit 2-to-1 multiplexer                             : 18
+ 16-bit 2-to-1 multiplexer                             : 29
  16-bit 4-to-1 multiplexer                             : 3
- 2-bit 2-to-1 multiplexer                              : 2
- 3-bit 2-to-1 multiplexer                              : 2
- 4-bit 2-to-1 multiplexer                              : 2
- 5-bit 2-to-1 multiplexer                              : 2
- 6-bit 2-to-1 multiplexer                              : 2
- 7-bit 2-to-1 multiplexer                              : 2
- 8-bit 2-to-1 multiplexer                              : 2
- 9-bit 2-to-1 multiplexer                              : 2
-# Logic shifters                                       : 5
+ 5-bit 2-to-1 multiplexer                              : 70
+ 6-bit 2-to-1 multiplexer                              : 1
+ 60-bit 2-to-1 multiplexer                             : 30
+ 8-bit 2-to-1 multiplexer                              : 12
+ 90-bit 2-to-1 multiplexer                             : 114
+ 90-bit 4-to-1 multiplexer                             : 6
+# Logic shifters                                       : 9
  16-bit shifter arithmetic right                       : 1
  16-bit shifter logical left                           : 1
  16-bit shifter logical right                          : 1
- 479-bit shifter logical right                         : 2
-# FSMs                                                 : 1
+ 1919-bit shifter logical right                        : 6
+# FSMs                                                 : 13
 # Xors                                                 : 1
  1-bit xor2                                            : 1
 
@@ -372,65 +526,368 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1710 - FF/Latch <M_m_blit_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <M_m_alit_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <M_m_alit_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <M_m_alit_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <M_m_alit_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <M_m_alit_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <M_m_alit_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <M_m_alit_6> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <M_m_alit_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <M_m_alit_8> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <M_m_alit_9> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <M_m_alit_10> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <M_m_alit_11> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <M_m_alit_12> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <M_m_alit_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <M_m_alit_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <M_m_alit_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <M_ledmanager_sequence_702> (without init value) has a constant value of 0 in block <animations_manager_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <M_ledmanager_animation_delay_12> (without init value) has a constant value of 1 in block <animations_manager_2>. This FF/Latch will be trimmed during the optimization process.
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <FSM_0> on signal <M_state_q[1:5]> with user encoding.
+Optimizing FSM <FSM_0> on signal <M_state_q[1:6]> with user encoding.
+--------------------
+ State  | Encoding
+--------------------
+ 000000 | 000000
+ 000010 | 000010
+ 101010 | 101010
+ 000011 | 000011
+ 000100 | 000100
+ 000101 | 000101
+ 000110 | 000110
+ 000111 | 000111
+ 001000 | 001000
+ 001001 | 001001
+ 001010 | 001010
+ 001011 | 001011
+ 001100 | 001100
+ 001101 | 001101
+ 001110 | 001110
+ 001111 | 001111
+ 010000 | 010000
+ 010001 | 010001
+ 010010 | 010010
+ 010011 | 010011
+ 010100 | 010100
+ 010101 | 010101
+ 010110 | 010110
+ 010111 | 010111
+ 011000 | 011000
+ 011001 | 011001
+ 011010 | 011010
+ 011011 | 011011
+ 011100 | 011100
+ 011101 | 011101
+ 011110 | 011110
+ 011111 | 011111
+ 100000 | 100000
+ 100001 | 100001
+ 100010 | 100010
+ 100011 | 100011
+ 100100 | 100100
+ 100101 | 100101
+ 100110 | 100110
+ 100111 | 100111
+ 101000 | 101000
+ 101001 | 101001
+ 101011 | 101011
+ 101100 | 101100
+ 101101 | 101101
+ 101110 | 101110
+--------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <p1l1am/FSM_1> on signal <M_bangsequence_q[1:3]> with user encoding.
+Optimizing FSM <p1l2am/FSM_1> on signal <M_bangsequence_q[1:3]> with user encoding.
+Optimizing FSM <p1l3am/FSM_1> on signal <M_bangsequence_q[1:3]> with user encoding.
+Optimizing FSM <p2l1am/FSM_1> on signal <M_bangsequence_q[1:3]> with user encoding.
+Optimizing FSM <p2l2am/FSM_1> on signal <M_bangsequence_q[1:3]> with user encoding.
+Optimizing FSM <p2l3am/FSM_1> on signal <M_bangsequence_q[1:3]> with user encoding.
 -------------------
  State | Encoding
 -------------------
- 00000 | 00000
- 10100 | 10100
- 00010 | 00010
- 00011 | 00011
- 00100 | 00100
- 00101 | 00101
- 00110 | 00110
- 00111 | 00111
- 01000 | 01000
- 01001 | 01001
- 01010 | 01010
- 01011 | 01011
- 01100 | 01100
- 01101 | 01101
- 01110 | 01110
- 01111 | 01111
- 10000 | 10000
- 10001 | 10001
- 10010 | 10010
- 10011 | 10011
- 10101 | 10101
- 10110 | 10110
- 10111 | 10111
+ 000   | 000
+ 010   | 010
+ 011   | 011
+ 110   | 110
+ 100   | 100
+ 001   | 001
+ 101   | 101
 -------------------
-INFO:Xst:2261 - The FF/Latch <M_m_wa_1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <M_m_ra_1> 
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <p1l1am/ledmanager/FSM_2> on signal <M_state_q[1:3]> with user encoding.
+Optimizing FSM <p1l2am/ledmanager/FSM_2> on signal <M_state_q[1:3]> with user encoding.
+Optimizing FSM <p1l3am/ledmanager/FSM_2> on signal <M_state_q[1:3]> with user encoding.
+Optimizing FSM <p2l1am/ledmanager/FSM_2> on signal <M_state_q[1:3]> with user encoding.
+Optimizing FSM <p2l2am/ledmanager/FSM_2> on signal <M_state_q[1:3]> with user encoding.
+Optimizing FSM <p2l3am/ledmanager/FSM_2> on signal <M_state_q[1:3]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 000
+ 001   | 001
+ 010   | 010
+ 011   | 011
+ 100   | 100
+ 101   | 101
+-------------------
 
 Optimizing unit <mojo_top_0> ...
 
-Optimizing unit <memory_2> ...
+Optimizing unit <animations_manager_2> ...
 
-Optimizing unit <alu_3> ...
+Optimizing unit <ledmanager_12> ...
 
-Optimizing unit <adderFunction_4> ...
+Optimizing unit <memory_8> ...
+
+Optimizing unit <alu_11> ...
+
+Optimizing unit <adderFunction_18> ...
+WARNING:Xst:1710 - FF/Latch <p2l3am/M_ledmanager_sequence_464> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <p2l3am/M_ledmanager_sequence_560> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <p2l2am/M_ledmanager_sequence_464> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <p2l2am/M_ledmanager_sequence_560> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <p2l1am/M_ledmanager_sequence_464> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <p2l1am/M_ledmanager_sequence_560> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <p1l3am/M_ledmanager_sequence_472> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <p1l3am/M_ledmanager_sequence_568> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <p1l2am/M_ledmanager_sequence_472> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <p1l2am/M_ledmanager_sequence_568> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <p1l1am/M_ledmanager_sequence_472> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <p1l1am/M_ledmanager_sequence_568> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <p2l1am/ledmanager/M_timer_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_59> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_58> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_57> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_56> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_55> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_54> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_53> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_52> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_51> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_50> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_49> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_48> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_47> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_46> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_45> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_44> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_43> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_42> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_41> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_40> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_58> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_57> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_56> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_55> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_54> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_53> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_52> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_51> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_50> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_49> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_48> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_47> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_46> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_45> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_44> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_43> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_42> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_41> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_40> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_39> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_38> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_37> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_36> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_35> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_34> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_33> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_32> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_31> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_30> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_49> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_48> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_47> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_46> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_45> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_44> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_43> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_42> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_41> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_40> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_39> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_38> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_37> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_36> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_35> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_34> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_33> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_32> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_31> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_30> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_39> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_38> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_37> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_36> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_35> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_34> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_33> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_32> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_31> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_30> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l2am/ledmanager/M_timer_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_59> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_58> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_57> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_56> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_55> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_54> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_53> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_52> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_51> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l3am/ledmanager/M_timer_q_50> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_30> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_59> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_58> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_57> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_56> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_55> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_54> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_53> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_52> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_51> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_50> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_49> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_48> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_47> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_46> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_45> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_44> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_43> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_42> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_41> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_40> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_59> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_58> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_57> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_56> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_55> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_54> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_53> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_52> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_51> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_50> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_49> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_48> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_47> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_46> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_45> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_44> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_43> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_42> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_41> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_40> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_39> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_38> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_37> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_36> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_35> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_34> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_33> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_32> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l1am/ledmanager/M_timer_q_31> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_48> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_47> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_46> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_45> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_44> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_43> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_42> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_41> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_40> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_39> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_38> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_37> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_36> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_35> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_34> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_33> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_32> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_31> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_30> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p2l1am/ledmanager/M_timer_q_59> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_39> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_38> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_37> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_36> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_35> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_34> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_33> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_32> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_31> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_30> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l2am/ledmanager/M_timer_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_59> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_58> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_57> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_56> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_55> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_54> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_53> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_52> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_51> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_50> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <p1l3am/ledmanager/M_timer_q_49> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <p1l1am/M_ledmanager_sequence_40> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <p1l1am/M_ledmanager_sequence_136> <p1l1am/M_ledmanager_sequence_120> 
+INFO:Xst:2261 - The FF/Latch <p2l3am/M_ledmanager_sequence_32> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <p2l3am/M_ledmanager_sequence_128> <p2l3am/M_ledmanager_sequence_120> 
+INFO:Xst:2261 - The FF/Latch <p2l2am/M_ledmanager_sequence_32> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <p2l2am/M_ledmanager_sequence_128> <p2l2am/M_ledmanager_sequence_120> 
+INFO:Xst:2261 - The FF/Latch <p2l1am/M_ledmanager_sequence_32> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <p2l1am/M_ledmanager_sequence_128> <p2l1am/M_ledmanager_sequence_120> 
+INFO:Xst:2261 - The FF/Latch <p1l3am/M_ledmanager_sequence_40> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <p1l3am/M_ledmanager_sequence_136> <p1l3am/M_ledmanager_sequence_120> 
+INFO:Xst:2261 - The FF/Latch <p1l2am/M_ledmanager_sequence_40> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <p1l2am/M_ledmanager_sequence_136> <p1l2am/M_ledmanager_sequence_120> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 15.
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 61.
+FlipFlop M_state_q_FSM_FFd1 has been replicated 2 time(s)
+FlipFlop M_state_q_FSM_FFd2 has been replicated 3 time(s)
+FlipFlop M_state_q_FSM_FFd3 has been replicated 2 time(s)
+FlipFlop M_state_q_FSM_FFd4 has been replicated 2 time(s)
+FlipFlop M_state_q_FSM_FFd5 has been replicated 2 time(s)
+FlipFlop M_state_q_FSM_FFd6 has been replicated 2 time(s)
 
 Final Macro Processing ...
 
@@ -442,8 +899,8 @@ Unit <mojo_top_0> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 275
- Flip-Flops                                            : 275
+# Registers                                            : 953
+ Flip-Flops                                            : 953
 
 =========================================================================
 
@@ -466,30 +923,31 @@ Top Level Output File Name         : mojo_top_0.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 815
-#      GND                         : 3
-#      INV                         : 2
-#      LUT1                        : 25
-#      LUT2                        : 31
-#      LUT3                        : 13
-#      LUT4                        : 51
-#      LUT5                        : 131
-#      LUT6                        : 434
-#      MUXCY                       : 55
-#      MUXF7                       : 10
-#      VCC                         : 2
-#      XORCY                       : 58
-# FlipFlops/Latches                : 296
-#      FDR                         : 271
+# BELS                             : 4460
+#      GND                         : 15
+#      INV                         : 24
+#      LUT1                        : 686
+#      LUT2                        : 69
+#      LUT3                        : 102
+#      LUT4                        : 692
+#      LUT5                        : 347
+#      LUT6                        : 714
+#      MUXCY                       : 1066
+#      MUXF7                       : 16
+#      VCC                         : 14
+#      XORCY                       : 715
+# FlipFlops/Latches                : 1013
+#      FD                          : 36
+#      FDE                         : 247
+#      FDR                         : 597
+#      FDRE                        : 69
 #      FDS                         : 4
-#      LDC                         : 17
-#      LDP                         : 4
-# Clock Buffers                    : 2
-#      BUFG                        : 1
+#      LD                          : 60
+# Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 15
-#      IBUF                        : 1
-#      OBUF                        : 8
+# IO Buffers                       : 63
+#      IBUF                        : 13
+#      OBUF                        : 44
 #      OBUFT                       : 6
 # DSPs                             : 1
 #      DSP48A1                     : 1
@@ -501,23 +959,23 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             296  out of  11440     2%  
- Number of Slice LUTs:                  687  out of   5720    12%  
-    Number used as Logic:               687  out of   5720    12%  
+ Number of Slice Registers:            1013  out of  11440     8%  
+ Number of Slice LUTs:                 2634  out of   5720    46%  
+    Number used as Logic:              2634  out of   5720    46%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    916
-   Number with an unused Flip Flop:     620  out of    916    67%  
-   Number with an unused LUT:           229  out of    916    25%  
-   Number of fully used LUT-FF pairs:    67  out of    916     7%  
-   Number of unique control sets:         5
+ Number of LUT Flip Flop pairs used:   2741
+   Number with an unused Flip Flop:    1728  out of   2741    63%  
+   Number with an unused LUT:           107  out of   2741     3%  
+   Number of fully used LUT-FF pairs:   906  out of   2741    33%  
+   Number of unique control sets:        72
 
 IO Utilization: 
- Number of IOs:                          35
- Number of bonded IOBs:                  16  out of    102    15%  
+ Number of IOs:                          70
+ Number of bonded IOBs:                  64  out of    102    62%  
 
 Specific Feature Utilization:
- Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
  Number of DSP48A1s:                      1  out of     16     6%  
 
 ---------------------------
@@ -538,15 +996,21 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
--------------------------------------------------------+------------------------+-------+
-Clock Signal                                           | Clock buffer(FF name)  | Load  |
--------------------------------------------------------+------------------------+-------+
-M_state_q[4]_PWR_12_o_Mux_100_o(M_state_q__n0582<2>1:O)| BUFG(*)(M_m_wa_3)      | 21    |
-clk                                                    | BUFGP                  | 275   |
--------------------------------------------------------+------------------------+-------+
-(*) This 1 clock signal(s) are generated by combinatorial logic,
+-------------------------------------------------------------------------------------------------------------------------+-----------------------------------------+-------+
+Clock Signal                                                                                                             | Clock buffer(FF name)                   | Load  |
+-------------------------------------------------------------------------------------------------------------------------+-----------------------------------------+-------+
+clk                                                                                                                      | BUFGP                                   | 953   |
+p2l2am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o(p2l2am/Mmux_M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o11:O)| NONE(*)(p2l2am/M_ledmanager_sequence_32)| 10    |
+p2l3am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o(p2l3am/Mmux_M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o11:O)| NONE(*)(p2l3am/M_ledmanager_sequence_32)| 10    |
+p1l1am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o(p1l1am/Mmux_M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o11:O)| NONE(*)(p1l1am/M_ledmanager_sequence_32)| 10    |
+p1l2am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o(p1l2am/Mmux_M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o11:O)| NONE(*)(p1l2am/M_ledmanager_sequence_32)| 10    |
+p2l1am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o(p2l1am/Mmux_M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o11:O)| NONE(*)(p2l1am/M_ledmanager_sequence_32)| 10    |
+p1l3am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o(p1l3am/Mmux_M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o11:O)| NONE(*)(p1l3am/M_ledmanager_sequence_32)| 10    |
+-------------------------------------------------------------------------------------------------------------------------+-----------------------------------------+-------+
+(*) These 6 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
@@ -556,9 +1020,9 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 13.034ns (Maximum Frequency: 76.722MHz)
-   Minimum input arrival time before clock: 3.526ns
-   Maximum output required time after clock: 4.444ns
+   Minimum period: 17.094ns (Maximum Frequency: 58.500MHz)
+   Minimum input arrival time before clock: 19.808ns
+   Maximum output required time after clock: 5.624ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -567,114 +1031,183 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 13.034ns (frequency: 76.722MHz)
-  Total number of paths / destination ports: 710908 / 545
+  Clock period: 17.094ns (frequency: 58.500MHz)
+  Total number of paths / destination ports: 14867625 / 1934
 -------------------------------------------------------------------------
-Delay:               13.034ns (Levels of Logic = 11)
-  Source:            m/M_reg_q_63 (FF)
-  Destination:       m/M_reg_q_224 (FF)
+Delay:               17.094ns (Levels of Logic = 15)
+  Source:            M_sclk_q_18 (FF)
+  Destination:       m/M_rtimer_q_0 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: m/M_reg_q_63 to m/M_reg_q_224
+  Data Path: M_sclk_q_18 to m/M_rtimer_q_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              3   0.525   0.994  M_reg_q_63 (M_reg_q_63)
-     LUT5:I2->O            1   0.235   0.958  Mmux_aout72 (Mmux_aout71)
-     LUT6:I2->O            6   0.254   0.876  Mmux_aout75 (Mmux_aout74)
-     LUT2:I1->O            6   0.254   0.875  Mmux_aout76 (aout<15>)
-     end scope: 'm:aout<15>'
-     begin scope: 'alu:a<15>'
-     begin scope: 'alu/adder:a<15>'
-     DSP48A1:B15->M12      1   3.894   1.112  Mmult_n0030 (n0030<12>)
-     end scope: 'alu/adder:n0030<12>'
-     LUT5:I0->O            1   0.254   0.910  Mmux_result214 (Mmux_result213)
-     LUT6:I3->O            1   0.235   0.000  Mmux_result220_G (N23)
-     MUXF7:I1->O          15   0.175   1.155  Mmux_result220 (result<0>)
+     FDR:C->Q              2   0.525   1.181  M_sclk_q_18 (M_sclk_q_18)
+     LUT6:I0->O            7   0.254   1.186  M_sclk_q[25]_GND_1_o_equal_10_o<25>14 (M_sclk_q[25]_GND_1_o_equal_10_o<25>14)
+     LUT6:I2->O            5   0.254   0.841  M_sclk_q[25]_GND_1_o_equal_2_o<25>1_1 (M_sclk_q[25]_GND_1_o_equal_2_o<25>1)
+     LUT6:I5->O            3   0.254   0.766  Mmux_M_m_ra12_SW0 (N135)
+     LUT6:I5->O           11   0.254   1.039  Mmux_M_m_ra14 (M_m_ra<0>)
+     begin scope: 'm:ra<0>'
+     LUT6:I5->O            1   0.254   0.790  Mmux_aout910 (Mmux_aout99)
+     LUT6:I4->O            1   0.250   0.682  Mmux_aout911 (Mmux_aout910)
+     LUT6:I5->O            9   0.254   0.975  Mmux_aout912 (aout<2>)
+     end scope: 'm:aout<2>'
+     begin scope: 'alu:a<2>'
+     begin scope: 'alu/adder:a<2>'
+     DSP48A1:B2->M13       1   3.894   1.137  Mmult_n0030 (n0030<13>)
+     LUT6:I0->O            1   0.254   0.790  z9 (z8)
+     LUT4:I2->O            1   0.250   0.682  z10 (M_adder_z)
+     end scope: 'alu/adder:M_adder_z'
+     LUT5:I4->O           16   0.254   0.000  fn<5> (result<0>)
      end scope: 'alu:result<0>'
      begin scope: 'm:wd<0>'
-     LUT6:I5->O            1   0.254   0.000  Mmux_M_reg_d<0>11 (M_reg_d<0>)
-     FDR:D                     0.074          M_reg_q_0
+     FDRE:D                    0.074          M_ratt1_q_0
     ----------------------------------------
-    Total                     13.034ns (6.154ns logic, 6.880ns route)
-                                       (47.2% logic, 52.8% route)
+    Total                     17.094ns (7.025ns logic, 10.069ns route)
+                                       (41.1% logic, 58.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 4 / 4
+  Total number of paths / destination ports: 3124291 / 106
 -------------------------------------------------------------------------
-Offset:              3.526ns (Levels of Logic = 3)
-  Source:            rst_n (PAD)
-  Destination:       reset_cond/M_stage_q_3 (FF)
+Offset:              19.808ns (Levels of Logic = 17)
+  Source:            att1_btn3 (PAD)
+  Destination:       m/M_rtimer_q_0 (FF)
   Destination Clock: clk rising
 
-  Data Path: rst_n to reset_cond/M_stage_q_3
+  Data Path: att1_btn3 to m/M_rtimer_q_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             1   1.328   0.681  rst_n_IBUF (rst_n_IBUF)
-     INV:I->O              4   0.255   0.803  M_reset_cond_in1_INV_0 (M_reset_cond_in)
-     begin scope: 'reset_cond:in'
-     FDS:S                     0.459          M_stage_q_0
+     IBUF:I->O            10   1.328   1.463  att1_btn3_IBUF (att1_btn3_IBUF)
+     LUT6:I0->O           13   0.254   1.553  att1_btn112 (att1_btn111)
+     LUT6:I0->O            1   0.254   0.958  _n03231_SW1_SW2 (N173)
+     LUT6:I2->O            1   0.254   0.910  _n03231_SW1 (N167)
+     LUT6:I3->O            3   0.235   0.766  Mmux_M_m_ra12_SW0 (N135)
+     LUT6:I5->O           11   0.254   1.039  Mmux_M_m_ra14 (M_m_ra<0>)
+     begin scope: 'm:ra<0>'
+     LUT6:I5->O            1   0.254   0.790  Mmux_aout910 (Mmux_aout99)
+     LUT6:I4->O            1   0.250   0.682  Mmux_aout911 (Mmux_aout910)
+     LUT6:I5->O            9   0.254   0.975  Mmux_aout912 (aout<2>)
+     end scope: 'm:aout<2>'
+     begin scope: 'alu:a<2>'
+     begin scope: 'alu/adder:a<2>'
+     DSP48A1:B2->M13       1   3.894   1.137  Mmult_n0030 (n0030<13>)
+     LUT6:I0->O            1   0.254   0.790  z9 (z8)
+     LUT4:I2->O            1   0.250   0.682  z10 (M_adder_z)
+     end scope: 'alu/adder:M_adder_z'
+     LUT5:I4->O           16   0.254   0.000  fn<5> (result<0>)
+     end scope: 'alu:result<0>'
+     begin scope: 'm:wd<0>'
+     FDRE:D                    0.074          M_ratt1_q_0
     ----------------------------------------
-    Total                      3.526ns (2.042ns logic, 1.484ns route)
-                                       (57.9% logic, 42.1% route)
+    Total                     19.808ns (8.063ns logic, 11.745ns route)
+                                       (40.7% logic, 59.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 6 / 6
+  Total number of paths / destination ports: 78 / 36
 -------------------------------------------------------------------------
-Offset:              4.444ns (Levels of Logic = 2)
-  Source:            m/M_reg_q_17 (FF)
-  Destination:       led<1> (PAD)
+Offset:              5.624ns (Levels of Logic = 4)
+  Source:            m/M_rs1_q_1 (FF)
+  Destination:       seven_seg1<6> (PAD)
   Source Clock:      clk rising
 
-  Data Path: m/M_reg_q_17 to led<1>
+  Data Path: m/M_rs1_q_1 to seven_seg1<6>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             10   0.525   1.007  M_reg_q_17 (M_reg_q_17)
-     end scope: 'm:timer<1>'
-     OBUF:I->O                 2.912          led_1_OBUF (led<1>)
+     FDRE:C->Q             9   0.525   1.252  M_rs1_q_1 (M_rs1_q_1)
+     end scope: 'm:s1<1>'
+     begin scope: 'seg1:char<1>'
+     LUT4:I0->O            1   0.254   0.681  Mram_segs21 (segs<2>)
+     end scope: 'seg1:segs<2>'
+     OBUF:I->O                 2.912          seven_seg1_2_OBUF (seven_seg1<2>)
     ----------------------------------------
-    Total                      4.444ns (3.437ns logic, 1.007ns route)
-                                       (77.3% logic, 22.7% route)
+    Total                      5.624ns (3.691ns logic, 1.933ns route)
+                                       (65.6% logic, 34.4% route)
 
 =========================================================================
 
 Cross Clock Domains Report:
 --------------------------
 
-Clock to Setup on destination clock M_state_q[4]_PWR_12_o_Mux_100_o
+Clock to Setup on destination clock clk
+-------------------------------------------------------+---------+---------+---------+---------+
+                                                       | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                                           |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-------------------------------------------------------+---------+---------+---------+---------+
+clk                                                    |   17.094|         |         |         |
+p1l1am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o|         |    7.419|         |         |
+p1l2am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o|         |    7.537|         |         |
+p1l3am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o|         |    7.537|         |         |
+p2l1am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o|         |    7.738|         |         |
+p2l2am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o|         |    7.627|         |         |
+p2l3am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o|         |    7.627|         |         |
+-------------------------------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock p1l1am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |         |         |    5.231|         |
+clk            |         |         |    2.698|         |
 ---------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock clk
--------------------------------+---------+---------+---------+---------+
-                               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
--------------------------------+---------+---------+---------+---------+
-M_state_q[4]_PWR_12_o_Mux_100_o|         |   14.475|         |         |
-clk                            |   13.034|         |         |         |
--------------------------------+---------+---------+---------+---------+
+Clock to Setup on destination clock p1l2am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    2.698|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock p1l3am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    2.698|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock p2l1am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    2.698|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock p2l2am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    2.698|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock p2l3am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    2.698|         |
+---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 8.35 secs
+Total REAL time to Xst completion: 25.00 secs
+Total CPU time to Xst completion: 25.56 secs
  
 --> 
 
 
-Total memory usage is 416624 kilobytes
+Total memory usage is 487240 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   67 (   0 filtered)
-Number of infos    :    5 (   0 filtered)
+Number of warnings :  297 (   0 filtered)
+Number of infos    :   15 (   0 filtered)
 

@@ -9,10 +9,19 @@ module mojo_top (
     output spi_channel [4], // AVR general purpose pins (used by default to select ADC channel)
     input avr_tx,           // AVR TX (FPGA RX)
     output avr_rx,          // AVR RX (FPGA TX)
-    input avr_rx_busy,       // AVR RX buffer full
+    input avr_rx_busy,       // AVR RX buffer full full
+    output leds[4],
+    output att1[3],
+    output att2[3],
+    output def1[3],
+    output def2[3],
     output led[8],
+    output led_strip1[3],
+    output led_strip2[3],
     
-    input on_button,  // init port on on_button
+    output seven_seg1[7],
+    output seven_seg2[7],
+    
     input att1_btn1,
     input att1_btn2,
     input att1_btn3,
@@ -25,6 +34,7 @@ module mojo_top (
     input def2_btn1,
     input def2_btn2,
     input def2_btn3
+   
   ) {
   
   sig rst;                  // reset signal
@@ -35,25 +45,35 @@ module mojo_top (
     reset_conditioner reset_cond;
     
     .rst(rst){
+      //animations_manager am;
+      
+      animations_manager p1l1am;
+      animations_manager p1l2am;
+      animations_manager p1l3am;
+      animations_manager p2l1am;
+      animations_manager p2l2am;
+      animations_manager p2l3am;
+               
+      
       memory m; 
       fsm state = {
         IDLE, OFF,
         CAL_TEMP_SCORE1, CAL_TEMP_SCORE2, FLIP_TEMP_SCORE1, FLIP_TEMP_SCORE2, ADD_SCORE1, ADD_SCORE2,
-        CAL_P1L1A_ACTION, CAL_P1L1D_ACTION, CAL_P2L1A_ACTION, CAL_P2L1D_ACTION,
-        CAL_P1L2A_ACTION, CAL_P1L2D_ACTION, CAL_P2L2A_ACTION, CAL_P2L2D_ACTION,
-        CAL_P1L3A_ACTION, CAL_P1L3D_ACTION, CAL_P2L3A_ACTION, CAL_P2L3D_ACTION,
+        CAL_L1B3, SHIFT_L1B3, CAL_L1B2, SHIFT_L1B2, ADD_L1B2, CAL_L1B1, SHIFT_L1B1, ADD_L1B1, CAL_L1B0, ADD_L1B0, ST_L1,
+        CAL_L2B3, SHIFT_L2B3, CAL_L2B2, SHIFT_L2B2, ADD_L2B2, CAL_L2B1, SHIFT_L2B1, ADD_L2B1, CAL_L2B0, ADD_L2B0, ST_L2,
+        CAL_L3B3, SHIFT_L3B3, CAL_L3B2, SHIFT_L3B2, ADD_L3B2, CAL_L3B1, SHIFT_L3B1, ADD_L3B1, CAL_L3B0, ADD_L3B0, ST_L3,
+        ANIMATION_START, ANIMATION_END,
         CLEAR_ATT1, CLEAR_ATT2, CLEAR_DEF1, CLEAR_DEF2
       };
       dff sclk[26] (#INIT(0));
     }
   }
+  seven_seg seg1;
+  seven_seg seg2;
   alu alu;
-  
   always {
     sclk.d = sclk.q + 1;
-    if (sclk.q == 50000001){
-      sclk.d = 0;
-    }
+    
     reset_cond.in = ~rst_n; // input raw inverted reset signal
     rst = reset_cond.out;   // conditioned reset
     
@@ -61,7 +81,8 @@ module mojo_top (
     spi_channel = bzzzz;    // not using flags
     avr_rx = bz;            // not using serial port
     
-    if (sclk.q == 50000000){
+    if (sclk.q == 26b1){      
+      m.we = 0;
       m.wa = 1;
       m.ra = 1;
       m.rb = 0;
@@ -70,26 +91,14 @@ module mojo_top (
       m.asel = 0;
       m.bsel = 1;          
       alu.fn = b000000; // ADD
+      m.we = 1;
     } else {
       case (state.q ){
         
         /** ----------------- IDLE ------------------------- **/
         state.IDLE:
-          //if (!on_button){  // IDLE -> OFF
-          if (0) {
-            m.wa = 2;
-            m.ra = 2;
-            m.rb = 0;
-            m.alit = 0;
-            m.blit = 1;
-            m.asel = 0;
-            m.bsel = 1;          
-            alu.fn = b000010; // SUB
-            state.d = state.OFF;
-            
-        /** ----------------- led increment ------------------------- **/
-        
-          } else if (m.timer == b00){  // IDLE -> CLEAR_ATT1
+          if (m.timer == b00 && sclk.q == 26b0 ){  // IDLE -> CLEAR_ATT1   
+            m.we = 0;
             m.wa = 9;
             m.ra = 9;
             m.rb = 0;
@@ -98,9 +107,11 @@ module mojo_top (
             m.asel = 1;
             m.bsel = 1;          
             alu.fn = b000000; // ADD
-            state.d = state.CLEAR_ATT1;
+            m.we = 1;
+            state.d = state.ANIMATION_END;
             
-          } else if (m.timer == b01){  // IDLE -> IDLE
+          } else if (m.timer == b01 && sclk.q == 26b0 ){  // IDLE -> IDLE
+            m.we = 0;
             m.wa = 9;
             m.ra = 9;
             m.rb = 0;
@@ -109,9 +120,11 @@ module mojo_top (
             m.asel = 1;
             m.bsel = 1;          
             alu.fn = b000000; // ADD
+            m.we = 1;
             state.d = state.IDLE;
             
-          } else if (m.timer == b10){  // IDLE -> IDLE
+          } else if (m.timer == b10 && sclk.q == 26b0 ){  // IDLE -> IDLE   
+            m.we = 0;
             m.wa = 9;
             m.ra = 9;
             m.rb = 0;
@@ -120,9 +133,11 @@ module mojo_top (
             m.asel = 1;
             m.bsel = 1;          
             alu.fn = b000000; // ADD
+            m.we = 1;
             state.d = state.IDLE;
             
-          } else if (m.timer == b11){  // IDLE -> CAL_TEMP_SCORE1
+          } else if (m.timer == b11 && sclk.q == 26b0 ){  // IDLE -> CAL_TEMP_SCORE1
+            m.we = 0;            
             m.wa = 9;
             m.ra = 9;
             m.rb = 0;
@@ -131,43 +146,51 @@ module mojo_top (
             m.asel = 1;
             m.bsel = 1;          
             alu.fn = b000000; // ADD
+            m.we = 1;
             state.d = state.CAL_TEMP_SCORE1;
         
         /** ----------------- register player inputs ------------------------- **/
-          } else if (att1_btn1){     // IDLE -> IDLE
+          } else if (att1_btn1){     // IDLE -> IDLE   
+            m.we = 0;
             m.wa = 3;
             m.ra = 0;
             m.rb = 0;
-            m.alit = b100;
+            m.alit = b0000000000000100;
             m.blit = 0;
             m.asel = 1;
             m.bsel = 1;        
             alu.fn = b000000; // ADD
+            m.we = 1;
             state.d = state.IDLE;
             
-          } else if (att1_btn2){     // IDLE -> IDLE
-            m.wa = 3;
+          } else if (att1_btn2){     // IDLE -> IDLE   
+            m.we = 0;
+            m.wa = b11;
             m.ra = 0;
             m.rb = 0;
-            m.alit = b010;
+            m.alit = b0000000000000010;
             m.blit = 0;
             m.asel = 1;
             m.bsel = 1;      
             alu.fn = b000000; // ADD
+            m.we = 1;
             state.d = state.IDLE;
             
           } else if (att1_btn3){     // IDLE -> IDLE
+            m.we = 0;
             m.wa = 3;
             m.ra = 0;
             m.rb = 0;
-            m.alit = b001;
+            m.alit = b0000000000000001;
             m.blit = 0;
             m.asel = 1;
             m.bsel = 1;  
             alu.fn = b000000; // ADD
+            m.we = 1;
             state.d = state.IDLE;
             
           } else if (def1_btn1){     // IDLE -> IDLE
+            m.we = 0;
             m.wa = 4;
             m.ra = 0;
             m.rb = 0;
@@ -176,9 +199,11 @@ module mojo_top (
             m.asel = 1;
             m.bsel = 1;   
             alu.fn = b000000; // ADD
+            m.we = 1;
             state.d = state.IDLE;
             
           } else if (def1_btn2){     // IDLE -> IDLE
+            m.we = 0;
             m.wa = 4;
             m.ra = 0;
             m.rb = 0;
@@ -187,9 +212,11 @@ module mojo_top (
             m.asel = 1;
             m.bsel = 1;   
             alu.fn = b000000; // ADD
+            m.we = 1;
             state.d = state.IDLE;
             
           } else if (def1_btn3){     // IDLE -> IDLE
+            m.we = 0;
             m.wa = 4;
             m.ra = 0;
             m.rb = 0;
@@ -198,10 +225,12 @@ module mojo_top (
             m.asel = 1;
             m.bsel = 1;   
             alu.fn = b000000; // ADD
+            m.we = 1;
             state.d = state.IDLE;
             
           } else if (att2_btn1){     // IDLE -> IDLE
-            m.wa = 6;
+            m.we = 0;
+            m.wa = 0;
             m.ra = 0;
             m.rb = 0;
             m.alit = b100;
@@ -209,10 +238,12 @@ module mojo_top (
             m.asel = 1;
             m.bsel = 1;   
             alu.fn = b000000; // ADD
+            m.we = 1;
             state.d = state.IDLE;
             
           } else if (att2_btn2){     // IDLE -> IDLE
-            m.wa = 6;
+            m.we = 0;
+            m.wa = 0;
             m.ra = 0;
             m.rb = 0;
             m.alit = b010;
@@ -220,10 +251,12 @@ module mojo_top (
             m.asel = 1;
             m.bsel = 1;   
             alu.fn = b000000; // ADD
+            m.we = 1;
             state.d = state.IDLE;
             
           } else if (att2_btn3){     // IDLE -> IDLE
-            m.wa = 6;
+            m.we = 0;
+            m.wa = 0;
             m.ra = 0;
             m.rb = 0;
             m.alit = b001;
@@ -231,50 +264,59 @@ module mojo_top (
             m.asel = 1;
             m.bsel = 1;   
             alu.fn = b000000; // ADD
+            m.we = 1;
             state.d = state.IDLE;
             
           } else if (def2_btn1){     // IDLE -> IDLE
-            m.wa = 7;
+            m.we = 0;
+            m.wa = 2;
             m.ra = 0;
             m.rb = 0;
-            m.alit = b100;
+            m.alit = b001;
             m.blit = 0;
             m.asel = 1;
             m.bsel = 1; 
             alu.fn = b000000; // ADD
+            m.we = 1;
             state.d = state.IDLE;
             
           } else if (def2_btn2){     // IDLE -> IDLE
-            m.wa = 7;
+            m.we = 0;
+            m.wa = 2;
             m.ra = 0;
             m.rb = 0;
-            m.alit = b010;
+            m.alit = b0000000000000010;
             m.blit = 0;
             m.asel = 1;
             m.bsel = 1;          
             alu.fn = b000000; // ADD
+            m.we = 1;
             state.d = state.IDLE;
             
           } else if (def2_btn3){     // IDLE -> IDLE
-            m.wa = 7;
+            m.we = 0;
+            m.wa = 2;
             m.ra = 0;
             m.rb = 0;
-            m.alit = b001;
+            m.alit = b0000000000000100;
             m.blit = 0;
             m.asel = 1;
             m.bsel = 1;        
             alu.fn = b000000; // ADD
+            m.we = 1;
             state.d = state.IDLE;
             
           } else {
-            m.wa = 15;
-            m.ra = 15;
-            m.rb = 15;
+            m.we = 0;
+            m.wa = 31;
+            m.ra = 31;
+            m.rb = 31;
             m.alit = 0;
             m.blit = 0;
             m.asel = 0;
             m.bsel = 0;      
             alu.fn = b000000; // ADD
+            m.we = 0;
             state.d = state.IDLE;
             
           }
@@ -282,28 +324,33 @@ module mojo_top (
           
         /** ---------------- score calculation ------------------ **/
         state.CAL_TEMP_SCORE1:
+          m.we = 0;
           m.wa = 10;
           m.ra = 3;
-          m.rb = 7;
+          m.rb = 2;
           m.alit = 0;
           m.blit = 0;
           m.asel = 0;
           m.bsel = 0;
-          alu.fn = b110010; // CMPEQ
+          alu.fn = b110011; // CMPEQ
+          m.we = 1;
           state.d = state.CAL_TEMP_SCORE2;
           
         state.CAL_TEMP_SCORE2:
+          m.we = 0;
           m.wa = 11;
-          m.ra = 6;
+          m.ra = 0;
           m.rb = 4;
           m.alit = 0;
           m.blit = 0;
           m.asel = 0;
           m.bsel = 0;
-          alu.fn = b110010; // CMPEQ
+          alu.fn = b110011; // CMPEQ
+          m.we = 1;
           state.d = state.FLIP_TEMP_SCORE1;
           
         state.FLIP_TEMP_SCORE1:
+          m.we = 0;
           m.wa = 10;
           m.ra = 10;
           m.rb = 0;
@@ -311,10 +358,12 @@ module mojo_top (
           m.blit = 1;
           m.asel = 0;
           m.bsel = 1;
-            alu.fn = b010110; // bool_XOR
+          alu.fn = b010110; // bool_XOR
+          m.we = 1;
           state.d = state.FLIP_TEMP_SCORE2;
           
         state.FLIP_TEMP_SCORE2:
+          m.we = 0;
           m.wa = 11;
           m.ra = 11;
           m.rb = 0;
@@ -322,10 +371,12 @@ module mojo_top (
           m.blit = 1;
           m.asel = 0;
           m.bsel = 1;
-            alu.fn = b010110; // bool_XOR
+          alu.fn = b010110; // bool_XOR
+          m.we = 1;
           state.d = state.ADD_SCORE1;
           
         state.ADD_SCORE1:
+          m.we = 0;
           m.wa = 5;
           m.ra = 5;
           m.rb = 10;
@@ -334,9 +385,11 @@ module mojo_top (
           m.asel = 0;
           m.bsel = 0;
           alu.fn = b000000; // ADD
+          m.we = 1;
           state.d = state.ADD_SCORE2;
           
         state.ADD_SCORE2:
+          m.we = 0;
           m.wa = 8;
           m.ra = 8;
           m.rb = 11;
@@ -345,46 +398,480 @@ module mojo_top (
           m.asel = 0;
           m.bsel = 0;
           alu.fn = b000000; // ADD
-          state.d = state.CAL_P1L1A_ACTION;  // next state to be changed aft finding out how led strips work
+          m.we = 1;
+          state.d = state.CAL_L1B3;
           
-        state.CAL_P1L1A_ACTION:
-          state.d = state.CAL_P1L1D_ACTION;
+        /** ----------------- setting registers for lane animation (lane 1) ------------------------- **/
           
-        state.CAL_P1L1D_ACTION:
-          state.d = state.CAL_P2L1A_ACTION;
+        state.CAL_L1B3:
+          m.we = 0;
+          m.wa = 15;
+          m.ra = 4;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 4;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b110011; // CMPEQ
+          m.we = 1;
+          state.d = state.SHIFT_L1B3;
           
-        state.CAL_P2L1A_ACTION:
-          state.d = state.CAL_P2L1D_ACTION;
+        state.SHIFT_L1B3:
+          m.we = 0;
+          m.wa = 15;
+          m.ra = 15;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 3;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b100000; // SHLC
+          m.we = 1;
+          state.d = state.CAL_L1B2;
           
-        state.CAL_P2L1D_ACTION:    
-          state.d = state.CAL_P1L2A_ACTION;
+        state.CAL_L1B2:
+          m.we = 0;
+          m.wa = 16;
+          m.ra = 3;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 4;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b110011; // CMPEQ
+          m.we = 1;
+          state.d = state.SHIFT_L1B2;
           
-        state.CAL_P1L2A_ACTION:
-          state.d = state.CAL_P1L2D_ACTION;
+        state.SHIFT_L1B2:
+          m.we = 0;
+          m.wa = 16;
+          m.ra = 16;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 2;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b100000; // SHLC
+          m.we = 1;
+          state.d = state.ADD_L1B2;
           
-        state.CAL_P1L2D_ACTION:
-          state.d = state.CAL_P2L2A_ACTION;
+        state.ADD_L1B2:
+          m.we = 0;
+          m.wa = 15;
+          m.ra = 15;
+          m.rb = 16;
+          m.alit = 0;
+          m.blit = 0;
+          m.asel = 0;
+          m.bsel = 0;
+          alu.fn = b000000; // ADD
+          m.we = 1;
+          state.d = state.CAL_L1B1;
           
-        state.CAL_P2L2A_ACTION:
-          state.d = state.CAL_P2L2D_ACTION;
+        state.CAL_L1B1:
+          m.we = 0;
+          m.wa = 16;
+          m.ra = 2;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 1;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b110011; // CMPEQ
+          m.we = 1;
+          state.d = state.SHIFT_L1B1;
           
-        state.CAL_P2L2D_ACTION:
-          state.d = state.CAL_P1L3A_ACTION;
+        state.SHIFT_L1B1:
+          m.we = 0;
+          m.wa = 16;
+          m.ra = 16;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 1;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b100000; // SHLC
+          m.we = 1;
+          state.d = state.ADD_L1B1;
           
-        state.CAL_P1L3A_ACTION:
-          state.d = state.CAL_P1L3D_ACTION;
+        state.ADD_L1B1:
+          m.we = 0;
+          m.wa = 15;
+          m.ra = 15;
+          m.rb = 16;
+          m.alit = 0;
+          m.blit = 0;
+          m.asel = 0;
+          m.bsel = 0;
+          alu.fn = b000000; // ADD
+          m.we = 1;
+          state.d = state.CAL_L1B0;
           
-        state.CAL_P1L3D_ACTION:
-          state.d = state.CAL_P2L3A_ACTION;
+        state.CAL_L1B0:
+          m.we = 0;
+          m.wa = 16;
+          m.ra = 0;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 1;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b110011; // CMPEQ
+          m.we = 1;
+          state.d = state.ADD_L1B0;
           
-        state.CAL_P2L3A_ACTION:
-          state.d = state.CAL_P2L3D_ACTION;
+        state.ADD_L1B0:
+          m.we = 0;
+          m.wa = 15;
+          m.ra = 15;
+          m.rb = 16;
+          m.alit = 0;
+          m.blit = 0;
+          m.asel = 0;
+          m.bsel = 0;
+          alu.fn = b000000; // ADD
+          m.we = 1;
+          state.d = state.ST_L1;
           
-        state.CAL_P2L3D_ACTION:        
+        state.ST_L1:
+          m.we = 0;
+          m.wa = 30;
+          m.ra = 15;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 0;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b000000; // ADD
+          m.we = 1;
+          state.d = state.CAL_L2B3;
+          
+        /** ----------------- setting registers for lane animation (lane 2) ------------------------- **/
+          
+        state.CAL_L2B3:
+          m.we = 0;
+          m.wa = 15;
+          m.ra = 4;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 2;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b110011; // CMPEQ
+          m.we = 1;
+          state.d = state.SHIFT_L2B3;
+          
+        state.SHIFT_L2B3:
+          m.we = 0;
+          m.wa = 15;
+          m.ra = 15;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 3;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b100000; // SHLC
+          m.we = 1;
+          state.d = state.CAL_L2B2;
+          
+        state.CAL_L2B2:
+          m.we = 0;
+          m.wa = 16;
+          m.ra = 3;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 2;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b110011; // CMPEQ
+          m.we = 1;
+          state.d = state.SHIFT_L2B2;
+          
+        state.SHIFT_L2B2:
+          m.we = 0;
+          m.wa = 16;
+          m.ra = 16;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 2;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b100000; // SHLC
+          m.we = 1;
+          state.d = state.ADD_L2B2;
+          
+        state.ADD_L2B2:
+          m.we = 0;
+          m.wa = 15;
+          m.ra = 15;
+          m.rb = 16;
+          m.alit = 0;
+          m.blit = 0;
+          m.asel = 0;
+          m.bsel = 0;
+          alu.fn = b000000; // ADD
+          m.we = 1;
+          state.d = state.CAL_L2B1;
+          
+        state.CAL_L2B1:
+          m.we = 0;
+          m.wa = 16;
+          m.ra = 2;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 2;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b110011; // CMPEQ
+          m.we = 1;
+          state.d = state.SHIFT_L2B1;
+          
+        state.SHIFT_L2B1:
+          m.we = 0;
+          m.wa = 16;
+          m.ra = 16;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 1;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b100000; // SHLC
+          m.we = 1;
+          state.d = state.ADD_L2B1;
+          
+        state.ADD_L2B1:
+          m.we = 0;
+          m.wa = 15;
+          m.ra = 15;
+          m.rb = 16;
+          m.alit = 0;
+          m.blit = 0;
+          m.asel = 0;
+          m.bsel = 0;
+          alu.fn = b000000; // ADD
+          m.we = 1;
+          state.d = state.CAL_L2B0;
+          
+        state.CAL_L2B0:
+          m.we = 0;
+          m.wa = 16;
+          m.ra = 0;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 2;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b110011; // CMPEQ
+          m.we = 1;
+          state.d = state.ADD_L2B0;
+          
+        state.ADD_L2B0:
+          m.we = 0;
+          m.wa = 15;
+          m.ra = 15;
+          m.rb = 16;
+          m.alit = 0;
+          m.blit = 0;
+          m.asel = 0;
+          m.bsel = 0;
+          alu.fn = b000000; // ADD
+          m.we = 1;
+          state.d = state.ST_L2;
+          
+        state.ST_L2:
+          m.we = 0;
+          m.wa = 13;
+          m.ra = 15;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 0;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b000000; // ADD
+          m.we = 1;
+          state.d = state.CAL_L3B3;
+          
+        /** ----------------- setting registers for lane animation (lane 3) ------------------------- **/
+          
+        state.CAL_L3B3:
+          m.we = 0;
+          m.wa = 15;
+          m.ra = 4;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 1;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b110011; // CMPEQ
+          m.we = 1;
+          state.d = state.SHIFT_L3B3;
+          
+        state.SHIFT_L3B3:
+          m.we = 0;
+          m.wa = 15;
+          m.ra = 15;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 3;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b100000; // SHLC
+          m.we = 1;
+          state.d = state.CAL_L3B2;
+          
+        state.CAL_L3B2:
+          m.we = 0;
+          m.wa = 16;
+          m.ra = 3;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 1;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b110011; // CMPEQ
+          m.we = 1;
+          state.d = state.SHIFT_L3B2;
+          
+        state.SHIFT_L3B2:
+          m.we = 0;
+          m.wa = 16;
+          m.ra = 16;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 2;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b100000; // SHLC
+          m.we = 1;
+          state.d = state.ADD_L3B2;
+          
+        state.ADD_L3B2:
+          m.we = 0;
+          m.wa = 15;
+          m.ra = 15;
+          m.rb = 16;
+          m.alit = 0;
+          m.blit = 0;
+          m.asel = 0;
+          m.bsel = 0;
+          alu.fn = b000000; // ADD
+          m.we = 1;
+          state.d = state.CAL_L3B1;
+          
+        state.CAL_L3B1:
+          m.we = 0;
+          m.wa = 16;
+          m.ra = 2;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 4;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b110011; // CMPEQ
+          m.we = 1;
+          state.d = state.SHIFT_L3B1;
+          
+        state.SHIFT_L3B1:
+          m.we = 0;
+          m.wa = 16;
+          m.ra = 16;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 1;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b100000; // SHLC
+          m.we = 1;
+          state.d = state.ADD_L3B1;
+          
+        state.ADD_L3B1:
+          m.we = 0;
+          m.wa = 15;
+          m.ra = 15;
+          m.rb = 16;
+          m.alit = 0;
+          m.blit = 0;
+          m.asel = 0;
+          m.bsel = 0;
+          alu.fn = b000000; // ADD
+          m.we = 1;
+          state.d = state.CAL_L3B0;
+          
+        state.CAL_L3B0:
+          m.we = 0;
+          m.wa = 16;
+          m.ra = 0;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 4;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b110011; // CMPEQ
+          m.we = 1;
+          state.d = state.ADD_L3B0;
+          
+        state.ADD_L3B0:
+          m.we = 0;
+          m.wa = 15;
+          m.ra = 15;
+          m.rb = 16;
+          m.alit = 0;
+          m.blit = 0;
+          m.asel = 0;
+          m.bsel = 0;
+          alu.fn = b000000; // ADD
+          m.we = 1;
+          state.d = state.ST_L3;
+          
+        state.ST_L3:
+          m.we = 0;
+          m.wa = 14;
+          m.ra = 15;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 0;
+          m.asel = 0;
+          m.bsel = 1;
+          alu.fn = b000000; // ADD
+          m.we = 1;
+          state.d = state.ANIMATION_START;
+
+          
+          
+        
+        /** ----------------- animation ------------------------- **/          
+        state.ANIMATION_START:
+          m.we = 0;
+          m.wa = 17;
+          m.ra = 17;
+          m.rb = 0;
+          m.alit = 1;
+          m.blit = 0;
+          m.asel = 1;
+          m.bsel = 1;
+          alu.fn = b000000; // ADD
+          m.we = 1;
+          state.d = state.CLEAR_ATT1;
+          
+          
+        state.ANIMATION_END:
+          m.we = 0;
+          m.wa = 17;
+          m.ra = 17;
+          m.rb = 0;
+          m.alit = 0;
+          m.blit = 0;
+          m.asel = 1;
+          m.bsel = 1;
+          alu.fn = b000000; // ADD
+          m.we = 1;
           state.d = state.IDLE;
+          
+        
           
         /** ----------------- resetiing player inputs after round ------------------------- **/
         state.CLEAR_ATT1:
+          m.we = 0;
           m.wa = 3;
           m.ra = 3;
           m.rb = 0;
@@ -393,20 +880,24 @@ module mojo_top (
           m.asel = 0;
           m.bsel = 1;
           alu.fn = b100001; // SHR
+          m.we = 1;
           state.d = state.CLEAR_ATT2;
           
         state.CLEAR_ATT2:
-          m.wa = 6;
-          m.ra = 6;
+          m.we = 0;
+          m.wa = 0;
+          m.ra = 0;
           m.rb = 0;
           m.alit = 0;
           m.blit = 3;
           m.asel = 0;
           m.bsel = 1;
           alu.fn = b100001; // SHR
+          m.we = 1;
           state.d = state.CLEAR_DEF1;
           
         state.CLEAR_DEF1:
+          m.we = 0;
           m.wa = 4;
           m.ra = 4;
           m.rb = 0;
@@ -415,34 +906,111 @@ module mojo_top (
           m.asel = 0;
           m.bsel = 1;
           alu.fn = b100001; // SHR
+          m.we = 1;
           state.d = state.CLEAR_DEF2;
           
         state.CLEAR_DEF2:
-          m.wa = 7;
-          m.ra = 7;
+          m.we = 0;
+          m.wa = 2;
+          m.ra = 2;
           m.rb = 0;
           m.alit = 0;
           m.blit = 3;
           m.asel = 0;
           m.bsel = 1;
           alu.fn = b100001; // SHR
+          m.we = 1;
           state.d = state.IDLE;
           
         default:
-          m.wa = 15;
-          m.ra = 15;
+          m.we = 0;
+          m.wa = 31;
+          m.ra = 31;
           m.rb = 0;
           m.alit = 0;
           m.blit = 0;
           m.asel = 0;
           m.bsel = 0;
-            alu.fn = b000000; // ADD
+          alu.fn = b000000; // ADD
+          m.we = 0;
           state.d = state.IDLE;
       }
     }
+    
+    // -------------- cpu, alu and regfiles connection ------------------//
     alu.a = m.aout;
     alu.b = m.bout;
-    led = c{m.leds, b00, m.timer};
     m.wd = alu.result;
+    
+    // -------------- led timer pin out ------------------//
+    //leds = m.leds;
+    leds = m.p1l3;
+    
+    // -------------- button lights ------------------//
+    
+    att1 = m.att1;
+    att2 = m.att2;
+    def1 = m.def1;
+    def2 = m.def2;   
+    
+    // -------------- for score counters ------------------//
+    
+    seg1.char = m.s1;
+    seg2.char = m.s2;
+       
+    seven_seg1 = seg1.segs;
+    seven_seg2 = seg2.segs;
+    
+    
+    // -------------- for led strips ------------------//
+    
+    p1l1am.game_state = m.p1l1[2:0];
+    p1l1am.defense_status = m.p1l1[3];
+    p1l1am.color_selection = 1;
+    
+    p1l2am.game_state = m.p1l2[2:0];
+    p1l2am.defense_status = m.p1l2[3];
+    p1l2am.color_selection = 1;
+    
+    p1l3am.game_state = m.p1l3[2:0];
+    p1l3am.defense_status = m.p1l3[3];
+    p1l3am.color_selection = 1;
+    
+    p2l1am.game_state = m.p2l1[2:0];
+    p2l1am.defense_status = m.p2l1[3];
+    p2l1am.color_selection = 0;
+    
+    p2l2am.game_state = m.p2l2[2:0];
+    p2l2am.defense_status = m.p2l2[3];
+    p2l2am.color_selection = 0;
+    
+    p2l3am.game_state = m.p2l3[2:0];
+    p2l3am.defense_status = m.p2l3[3];
+    p2l3am.color_selection = 0;
+    
+    p1l1am.start = m.animation_start;
+    p1l2am.start = m.animation_start;
+    p1l3am.start = m.animation_start;
+    p2l1am.start = m.animation_start;
+    p2l2am.start = m.animation_start;
+    p2l3am.start = m.animation_start;
+        
+    led_strip1 = c{p1l1am.out, p1l2am.out, p1l3am.out};
+    led_strip2 = c{p2l1am.out, p2l2am.out, p2l3am.out};    
+    
+      
+    // led strip testers    
+    /**
+    am.game_state = b101;
+    am.defense_status = 1; // defense on   
+    am.color_selection = 0; // red
+    am.start = m.animation_start;
+    led_strip1 = c{am.out, am.out, am.out};
+    led_strip2 = c{am.out, am.out, am.out};
+    **/
+        
+    // testing
+    led = b11111111;
+    
   }
 }

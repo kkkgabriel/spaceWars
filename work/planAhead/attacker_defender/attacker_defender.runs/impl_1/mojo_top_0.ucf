@@ -5,6 +5,131 @@
 
 
 ####################################################################################
+# Constraints from file : 'custom.ucf'
+####################################################################################
+
+NET "def1_btn1" LOC = P83;
+NET "def1_btn1" IOSTANDARD = LVTTL;
+NET "def1_btn1" PULLDOWN;
+NET "def1_btn2" LOC = P85;
+NET "def1_btn2" IOSTANDARD = LVTTL;
+NET "def1_btn2" PULLDOWN;
+NET "def1_btn3" LOC = P88;
+NET "def1_btn3" IOSTANDARD = LVTTL;
+NET "def1_btn3" PULLDOWN;
+
+NET "att1_btn1" LOC = P93;
+NET "att1_btn1" IOSTANDARD = LVTTL;
+NET "att1_btn1" PULLDOWN;
+NET "att1_btn2" LOC = P95;
+NET "att1_btn2" IOSTANDARD = LVTTL;
+NET "att1_btn2" PULLDOWN;
+NET "att1_btn3" LOC = P98;
+NET "att1_btn3" IOSTANDARD = LVTTL;
+NET "att1_btn3" PULLDOWN;
+
+NET "def2_btn1" LOC = P9;
+NET "def2_btn1" IOSTANDARD = LVTTL;
+NET "def2_btn1" PULLDOWN;
+NET "def2_btn2" LOC = P11;
+NET "def2_btn2" IOSTANDARD = LVTTL;
+NET "def2_btn2" PULLDOWN;
+NET "def2_btn3" LOC = P14;
+NET "def2_btn3" IOSTANDARD = LVTTL;
+NET "def2_btn3" PULLDOWN;
+
+NET "att2_btn1" LOC = P16;
+NET "att2_btn1" IOSTANDARD = LVTTL;
+NET "att2_btn1" PULLDOWN;
+NET "att2_btn2" LOC = P21;
+NET "att2_btn2" IOSTANDARD = LVTTL;
+NET "att2_btn2" PULLDOWN;
+NET "att2_btn3" LOC = P23;
+NET "att2_btn3" IOSTANDARD = LVTTL;
+NET "att2_btn3" PULLDOWN;
+
+NET "def1[0]" LOC = P87;
+NET "def1[0]" IOSTANDARD = LVTTL;
+NET "def1[1]" LOC = P84;
+NET "def1[1]" IOSTANDARD = LVTTL;
+NET "def1[2]" LOC = P82;
+NET "def1[2]" IOSTANDARD = LVTTL;
+
+NET "att1[0]" LOC = P97;
+NET "att1[0]" IOSTANDARD = LVTTL;
+NET "att1[1]" LOC = P94;
+NET "att1[1]" IOSTANDARD = LVTTL;
+NET "att1[2]" LOC = P92;
+NET "att1[2]" IOSTANDARD = LVTTL;
+
+NET "def2[0]" LOC = P10;
+NET "def2[0]" IOSTANDARD = LVTTL;
+NET "def2[1]" LOC = P12;
+NET "def2[1]" IOSTANDARD = LVTTL;
+NET "def2[2]" LOC = P15;
+NET "def2[2]" IOSTANDARD = LVTTL;
+
+NET "att2[0]" LOC = P24;
+NET "att2[0]" IOSTANDARD = LVTTL;
+NET "att2[1]" LOC = P22;
+NET "att2[1]" IOSTANDARD = LVTTL;
+NET "att2[2]" LOC = P17;
+NET "att2[2]" IOSTANDARD = LVTTL;
+
+NET "seven_seg1[6]" LOC = P57;
+NET "seven_seg1[6]" IOSTANDARD = LVTTL;
+NET "seven_seg1[5]" LOC = P58;
+NET "seven_seg1[5]" IOSTANDARD = LVTTL;
+NET "seven_seg1[4]" LOC = P66;
+NET "seven_seg1[4]" IOSTANDARD = LVTTL;
+NET "seven_seg1[3]" LOC = P67;
+NET "seven_seg1[3]" IOSTANDARD = LVTTL;
+NET "seven_seg1[2]" LOC = P74;
+NET "seven_seg1[2]" IOSTANDARD = LVTTL;
+NET "seven_seg1[1]" LOC = P75;
+NET "seven_seg1[1]" IOSTANDARD = LVTTL;
+NET "seven_seg1[0]" LOC = P78;
+NET "seven_seg1[0]" IOSTANDARD = LVTTL;
+
+NET "seven_seg2[6]" LOC = P51;
+NET "seven_seg2[6]" IOSTANDARD = LVTTL;
+NET "seven_seg2[5]" LOC = P50;
+NET "seven_seg2[5]" IOSTANDARD = LVTTL;
+NET "seven_seg2[4]" LOC = P41;
+NET "seven_seg2[4]" IOSTANDARD = LVTTL;
+NET "seven_seg2[3]" LOC = P40;
+NET "seven_seg2[3]" IOSTANDARD = LVTTL;
+NET "seven_seg2[2]" LOC = P35;
+NET "seven_seg2[2]" IOSTANDARD = LVTTL;
+NET "seven_seg2[1]" LOC = P34;
+NET "seven_seg2[1]" IOSTANDARD = LVTTL;
+NET "seven_seg2[0]" LOC = P33;
+NET "seven_seg2[0]" IOSTANDARD = LVTTL;
+
+NET "led_strip1[0]" LOC = P100;
+NET "led_strip1[0]" IOSTANDARD = LVTTL;
+NET "led_strip1[1]" LOC = P102;
+NET "led_strip1[1]" IOSTANDARD = LVTTL;
+NET "led_strip1[2]" LOC = P105;
+NET "led_strip1[2]" IOSTANDARD = LVTTL;
+NET "led_strip2[0]" LOC = P99;
+NET "led_strip2[0]" IOSTANDARD = LVTTL;
+NET "led_strip2[1]" LOC = P101;
+NET "led_strip2[1]" IOSTANDARD = LVTTL;
+NET "led_strip2[2]" LOC = P104;
+NET "led_strip2[2]" IOSTANDARD = LVTTL;
+
+NET "leds[0]" LOC = P127;
+NET "leds[0]" IOSTANDARD = LVTTL;
+NET "leds[1]" LOC = P124;
+NET "leds[1]" IOSTANDARD = LVTTL;
+NET "leds[2]" LOC = P126;
+NET "leds[2]" IOSTANDARD = LVTTL;
+NET "leds[3]" LOC = P123;
+NET "leds[3]" IOSTANDARD = LVTTL;
+
+
+####################################################################################
 # Constraints from file : 'mojo.ucf'
 ####################################################################################
 
@@ -29,13 +154,9 @@ NET "led[2]" LOC = P132;
 NET "led[2]" IOSTANDARD = LVTTL;
 NET "led[3]" LOC = P131;
 NET "led[3]" IOSTANDARD = LVTTL;
-NET "led[4]" LOC = P127;
 NET "led[4]" IOSTANDARD = LVTTL;
-NET "led[5]" LOC = P126;
 NET "led[5]" IOSTANDARD = LVTTL;
-NET "led[6]" LOC = P124;
 NET "led[6]" IOSTANDARD = LVTTL;
-NET "led[7]" LOC = P123;
 NET "led[7]" IOSTANDARD = LVTTL;
 
 NET "spi_mosi" LOC = P44;

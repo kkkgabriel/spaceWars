@@ -1,0 +1,194 @@
+module ledmanager (
+    input clk,
+    input rst,  // clock
+    //input game_state[3],
+    input update,
+    input sequence[24*40],
+    input animation_delay[60],  // decides what color we get
+    output out
+    
+  ) {
+  
+  .clk(clk) {
+    dff timer[60];  // for tracking timing
+    dff physical_tracker[$clog2(24*40) + 1];  // for tracking of bits per color array 
+    dff pwm_status;
+    dff pixel_overall_count[8]; // for tracking of leds currently executing (index % 24). Hardcoded limit  = 5 for this test
+    dff already_running;
+    // For storing FSMs, we have 3 scenarios. First is HIGH, 2nd is LOW, 3rd is latch
+    // In addition, we also have a pause state between LEDs for animation!
+    fsm state = {ENTRANCE, HIGH, LOW, REPEAT, PAUSE, END};
+    }
+  
+  //sig color_selector[3];
+  sig alpha[24*40];
+  sig color_selector[3];
+  const PIXELCOUNT_PLAYER1 = 24;
+
+ 
+  
+  // color conversion system: 
+  always {
+    color_selector = 1;
+
+    case(color_selector)   // this part here can be swapped with SHR, with default value being blue
+    {
+      
+      1:alpha = c{8x{c{8b0,8b0,8b1}},32x{c{8b0,8b0,8b0}}};   //b000000001111111100000000; //RED
+      2:alpha = 5x{c{8b1,8b0,8b0}};    //b111111110000000000000000; //BLUE
+      3:alpha = 5x{c{8b0,8b0,8b1}}; //b000000000000000011111111; //GREEN
+      4:alpha = 5x{c{8b1,8b1,8b1}}; // turn the damn thing off
+      default:alpha = 24b1; //WHITE
+    }
+    out = pwm_status.q;
+    // checks the MSB. Will be replaced either with FSM, or ALU fn
+    case(sequence[physical_tracker.q]) {
+      b1:
+        case(state.q){
+        
+          state.ENTRANCE:
+            pixel_overall_count.d = 1;
+            physical_tracker.d = 0;
+            state.d = state.HIGH;
+
+          state.HIGH:
+            // Write HIGH on pwm status, proceed to hold value for Th = 0.8us, then go LOW
+            pwm_status.d = b1;
+            timer.d = timer.q + 1;
+            if (timer.q > 45){
+              //timer.d = b0;
+              state.d = state.LOW;
+            }
+          state.LOW:
+            // Write LOW on PWM status, proceed to hold value for Tl = 0.45us, then go latch mode
+            pwm_status.d = b0;
+            timer.d = timer.q + 1;
+            if (timer.q >= 62){
+              timer.d = b0;
+              physical_tracker.d = physical_tracker.q + 1;
+              state.d = state.REPEAT;
+              
+            }
+          state.REPEAT:
+            // Write LOW on PWM status, proceed to hold for Tlatch = 50us if Pixel programming has ended;
+            
+            if (physical_tracker.q == 24 * pixel_overall_count.q){
+              // reset physical_tracker. Take note that the reason this is restted is so that it can
+              // reach 48 (followed by another reset), then 72 (followed by another reset)...
+              physical_tracker.d = 0;
+              timer.d = 0;
+              // pause for animation
+              state.d = state.PAUSE;              
+            }
+            else{
+              // loop back to pushing next color bit  
+              state.d = state.HIGH;
+              }
+             
+            
+           state.PAUSE:
+            // introduces animation delay of 1s 
+            timer.d = timer.q + 1;
+            if (timer.q > animation_delay){
+            // once done proceed back to state.HIGH, loop back all over again
+              timer.d = b0;
+              
+              pixel_overall_count.d = pixel_overall_count.q + 1; 
+              if (pixel_overall_count.q >= PIXELCOUNT_PLAYER1)
+              {
+                state.d = state.END;
+                }
+              else{
+              state.d = state.HIGH;
+              }
+            }
+          state.END:
+            pwm_status.d = b0;
+            if (update == 1)
+            {
+              pixel_overall_count.d = 0;
+              physical_tracker.d = 0;
+              state.d = state.ENTRANCE;
+            }
+            // HOLD Indefinitely, until next input achieved
+            
+          }
+    
+      b0:
+        case(state.q){
+        
+          state.ENTRANCE:
+            //already_running.d = 1;
+            //This sequence is meant to clear all dirty bits existent
+            physical_tracker.d = 0;
+            pixel_overall_count.d = 1;
+            state.d = state.HIGH;
+
+          state.HIGH:
+            // Write HIGH on pwm status, proceed to hold value for Th = 0.8us, then go LOW
+            pwm_status.d = b1;
+            timer.d = timer.q + 1;
+            if (timer.q > 17){
+              //timer.d = b0;
+              state.d = state.LOW;
+            }
+          state.LOW:
+            // Write LOW on PWM status, proceed to hold value for Tl = 0.45us, then go latch mode
+            pwm_status.d = b0;
+            timer.d = timer.q + 1;
+            if (timer.q >= 62){
+              timer.d = b0;
+              physical_tracker.d = physical_tracker.q + 1;
+              state.d = state.REPEAT;
+              
+            }
+          state.REPEAT:
+            // Write LOW on PWM status, proceed to hold for Tlatch = 50us if Pixel programming has ended;
+
+            if (physical_tracker.q == 24 * pixel_overall_count.q){
+              // reset physical_tracker. Take note that the reason this is restted is so that it can
+              // reach 48 (followed by another reset), then 72 (followed by another reset)...
+              physical_tracker.d = 0;
+              timer.d = 0;
+              // pause for animation
+              state.d = state.PAUSE;              
+            }
+            else{
+              // loop back to pushing next color bit  
+              state.d = state.HIGH;
+              }
+             
+            
+           state.PAUSE:
+            // introduces animation delay of 1s 
+            timer.d = timer.q + 1;
+            if (timer.q > animation_delay){
+            // once done proceed back to state.HIGH, loop back all over again
+              timer.d = b0;
+              
+              pixel_overall_count.d = pixel_overall_count.q + 1; 
+              if (pixel_overall_count.q >= PIXELCOUNT_PLAYER1)
+              {
+                state.d = state.END;
+                }
+              else{
+              state.d = state.HIGH;
+              }
+            }
+          state.END:
+            pwm_status.d = b0;
+            if (update == 1)
+            {
+              pixel_overall_count.d = 0;
+              physical_tracker.d = 0;
+              state.d = state.ENTRANCE;
+            }
+            // HOLD Indefinitely, until next input achieved
+     }
+  }
+    out = pwm_status.q;
+}
+}
+        
+            
+  

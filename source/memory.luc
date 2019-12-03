@@ -2,36 +2,192 @@ module memory (
     input clk,  // clock
     input rst,  // reset
     input wd[16],
-    input wa[4],
-    input ra[4],
-    input rb[4],
+    input wa[5],
+    input ra[5],
+    input rb[5],
     input alit[16],
     input blit[16],
     input asel[1],
     input bsel[1],
+    input we[1],
     output aout[16],
     output bout[16],
     output timer[2],
-    output leds[4]
+    output leds[4],
+    output s1[4],
+    output s2[4],
+    output att1[3],
+    output def1[3],
+    output att2[3],
+    output def2[3],
+    output p1l1[4],
+    output p1l2[4],
+    output p1l3[4],
+    output p2l1[4],
+    output p2l2[4],
+    output p2l3[4],
+    output animation_start[1]
   ) {
   
   .clk(clk), .rst(rst){
-    dff reg[15][16];
-  }
+    dff rtimer[2] (#INIT(0));
+    dff ratt1[3] (#INIT(0));
+    dff rdef1[3] (#INIT(0));
+    dff ratt2[3] (#INIT(0));
+    dff rdef2[3] (#INIT(0));
+    dff rs1[4] (#INIT(0));
+    dff rs2[4] (#INIT(0));
+    dff rled[4] (#INIT(0));
+    dff rt_s1[1] (#INIT(0));
+    dff rt_s2[1] (#INIT(0));
+    dff rl1[4] (#INIT(0));
+    dff rl2[4] (#INIT(0));
+    dff rl3[4] (#INIT(0));
+    dff rstart[1] (#INIT(0));
+    dff rerror[1] (#INIT(0));
+    dff temp1[5] (#INIT(0));
+    dff temp2[5] (#INIT(0));
+   }
 
   always {
-    reg.d[wa] = wd;
     if ( asel ){
       aout = alit;
     } else {
-      aout = reg.q[ra];
+      case (ra){
+        1:
+          aout = rtimer.q;
+        2: 
+          aout = rdef2.q;
+        3: 
+          aout = ratt1.q;
+        4: 
+          aout = rdef1.q;
+        5: 
+          aout = rs1.q;
+        0: 
+          aout = ratt2.q;
+        8: 
+          aout = rs2.q;
+        9: 
+          aout = rled.q;
+        10: 
+          aout = rt_s1.q;
+        11: 
+          aout = rt_s2.q;
+        30: 
+          aout = rl1.q;
+        13: 
+          aout = rl2.q;
+        14: 
+          aout = rl3.q;
+        15:
+          aout = temp1.q;
+        16:
+          aout = temp2.q;
+        17: 
+          aout = rstart.q;
+        default:
+          rerror.d = 1;
+          aout = 0;
+      }
     }
+
     if ( bsel ){
       bout = blit;
     } else {
-      bout = reg.q[rb];
+      case (rb){
+        1:
+          bout = rtimer.q;
+        2: 
+          bout = rdef2.q;
+        3: 
+          bout = ratt1.q;
+        4: 
+          bout = rdef1.q;
+        5: 
+          bout = rs1.q;
+        0: 
+          bout = ratt2.q;
+        8: 
+          bout = rs2.q;
+        9: 
+          bout = rled.q;
+        10: 
+          bout = rt_s1.q;
+        11: 
+          bout = rt_s2.q;
+        30: 
+          bout = rl1.q;
+        13: 
+          bout = rl2.q;
+        14: 
+          bout = rl3.q;          
+        15:
+          bout = temp1.q;
+        16:
+          bout = temp2.q;
+        17: 
+          bout = rstart.q;
+        default:
+          rerror.d = 1;
+          bout = 0;
+      }
     }
-    timer = reg.q[1][1:0];
-    leds = reg.q[9][3:0];
+
+    if ( we ){
+      case (wa){
+        1:
+          rtimer.d = wd;
+        2: 
+          rdef2.d = wd;
+        3: 
+          ratt1.d = wd;
+        4: 
+          rdef1.d = wd;
+        5: 
+          rs1.d = wd;
+        0: 
+          ratt2.d = wd;
+        8: 
+          rs2.d = wd;
+        9: 
+          rled.d = wd;
+        10: 
+          rt_s1.d = wd;
+        11: 
+          rt_s2.d = wd;
+        30: 
+          rl1.d = wd;
+        13: 
+          rl2.d = wd;
+        14: 
+          rl3.d = wd;
+        15:
+          temp1.d = wd;
+        16:
+          temp2.d = wd;
+        17: 
+          rstart.d = wd;
+        default:
+          rerror.d = 1;
+      }
+    }
+    
+    timer = rtimer.q;
+    leds = rled.q;
+    att1 = ratt1.q;
+    def1 = rdef1.q;
+    att2 = ratt2.q;
+    def2 = rdef2.q;
+    s1 = rs1.q;
+    s2 = rs2.q;
+    animation_start = rstart.q;
+    
+    p1l1 = rl1.q[3:0];
+    p1l2 = rl2.q[3:0];
+    p1l3 = rl3.q[3:0];
+    p2l1 = c{rl1.q[1:0], rl1.q[3:2]};
+    p2l2 = c{rl2.q[1:0], rl2.q[3:2]};
+    p2l3 = c{rl3.q[1:0], rl3.q[3:2]};
   }
 }

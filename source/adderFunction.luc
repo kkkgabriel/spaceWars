@@ -20,7 +20,7 @@ module adderFunction (
         v = ((~a[15]) & (~b[15]) & temp[15]) | (a[15] & b[15] & (~temp[15]));
       
       // if subtraction is selected
-      b01:
+      b11:
         temp = a-b;
         // Overflow check based on equation V = -A[15] * B[15] * S[15] + A[15] * -B[15] * -S[15] for subtraction
         v = ((~a[15]) & (b[15]) & temp[15]) | (a[15] & ~b[15] & (~temp[15])); 

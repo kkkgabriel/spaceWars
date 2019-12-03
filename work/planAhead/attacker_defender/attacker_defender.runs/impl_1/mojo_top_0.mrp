@@ -8,40 +8,40 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Tue Nov 26 08:30:26 2019
+Mapped Date    : Tue Dec  3 22:01:05 2019
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    6
+Number of warnings:   12
 Slice Logic Utilization:
-  Number of Slice Registers:                   296 out of  11,440    2%
-    Number used as Flip Flops:                 275
-    Number used as Latches:                     21
+  Number of Slice Registers:                 1,007 out of  11,440    8%
+    Number used as Flip Flops:                 947
+    Number used as Latches:                     60
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        665 out of   5,720   11%
-    Number used as logic:                      663 out of   5,720   11%
-      Number using O6 output only:             616
-      Number using O5 output only:              24
-      Number using O5 and O6:                   23
+  Number of Slice LUTs:                      2,606 out of   5,720   45%
+    Number used as logic:                    2,592 out of   5,720   45%
+      Number using O6 output only:           1,639
+      Number using O5 output only:             667
+      Number using O5 and O6:                  286
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   1,440    0%
-    Number used exclusively as route-thrus:      2
+    Number used exclusively as route-thrus:     14
       Number with same-slice register load:      1
-      Number with same-slice carry load:         1
+      Number with same-slice carry load:        13
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   211 out of   1,430   14%
-  Number of MUXCYs used:                        60 out of   2,860    2%
-  Number of LUT Flip Flop pairs used:          670
-    Number with an unused Flip Flop:           375 out of     670   55%
-    Number with an unused LUT:                   5 out of     670    1%
-    Number of fully used LUT-FF pairs:         290 out of     670   43%
-    Number of unique control sets:               4
+  Number of occupied Slices:                   743 out of   1,430   51%
+  Number of MUXCYs used:                     1,132 out of   2,860   39%
+  Number of LUT Flip Flop pairs used:        2,639
+    Number with an unused Flip Flop:         1,657 out of   2,639   62%
+    Number with an unused LUT:                  33 out of   2,639    1%
+    Number of fully used LUT-FF pairs:         949 out of   2,639   35%
+    Number of unique control sets:              49
     Number of slice register sites lost
-      to control set restrictions:              16 out of  11,440    1%
+      to control set restrictions:             201 out of  11,440    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -50,21 +50,24 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        16 out of     102   15%
-    Number of LOCed IOBs:                       16 out of      16  100%
+  Number of bonded IOBs:                        64 out of     102   62%
+    Number of LOCed IOBs:                       60 out of      64   93%
+    IOB Flip Flops:                              6
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
   Number of RAMB8BWERs:                          0 out of      64    0%
   Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
   Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
-  Number of BUFG/BUFGMUXs:                       2 out of      16   12%
-    Number used as BUFGs:                        2
+  Number of BUFG/BUFGMUXs:                       1 out of      16    6%
+    Number used as BUFGs:                        1
     Number used as BUFGMUX:                      0
   Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
   Number of ILOGIC2/ISERDES2s:                   0 out of     200    0%
   Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
-  Number of OLOGIC2/OSERDES2s:                   0 out of     200    0%
+  Number of OLOGIC2/OSERDES2s:                   6 out of     200    3%
+    Number used as OLOGIC2s:                     6
+    Number used as OSERDES2s:                    0
   Number of BSCANs:                              0 out of       4    0%
   Number of BUFHs:                               0 out of     128    0%
   Number of BUFPLLs:                             0 out of       8    0%
@@ -78,11 +81,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                5.39
+Average Fanout of Non-Clock Nets:                3.78
 
-Peak Memory Usage:  869 MB
-Total REAL time to MAP completion:  7 secs 
-Total CPU time to MAP completion (all processors):   7 secs 
+Peak Memory Usage:  905 MB
+Total REAL time to MAP completion:  22 secs 
+Total CPU time to MAP completion (all processors):   23 secs 
 
 Table of Contents
 -----------------
@@ -105,32 +108,56 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
-WARNING:MapLib:701 - Signal spi_channel[3] connected to top level port
-   spi_channel(3) has been removed.
 WARNING:MapLib:701 - Signal spi_channel[2] connected to top level port
    spi_channel(2) has been removed.
-WARNING:MapLib:701 - Signal spi_channel[1] connected to top level port
-   spi_channel(1) has been removed.
+WARNING:MapLib:701 - Signal spi_channel[3] connected to top level port
+   spi_channel(3) has been removed.
+WARNING:MapLib:701 - Signal avr_rx connected to top level port avr_rx has been
+   removed.
 WARNING:MapLib:701 - Signal spi_channel[0] connected to top level port
    spi_channel(0) has been removed.
 WARNING:MapLib:701 - Signal spi_miso connected to top level port spi_miso has
    been removed.
-WARNING:MapLib:701 - Signal avr_rx connected to top level port avr_rx has been
-   removed.
+WARNING:MapLib:701 - Signal spi_channel[1] connected to top level port
+   spi_channel(1) has been removed.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   p1l1am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   p1l2am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   p1l3am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   p2l1am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   p2l2am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   p2l3am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
 
 Section 3 - Informational
 -------------------------
 INFO:Map:284 - Map is running with the multi-threading option on. Map currently
    supports the use of up to 2 processors. Based on the the user options and
    machine load, Map will use 2 processors during this run.
-INFO:LIT:243 - Logical network def2_btn1 has no load.
-INFO:LIT:395 - The above info message is repeated 18 more times for the
-   following (max. 5 shown):
-   def2_btn2,
-   def2_btn3,
-   att2_btn1,
-   att2_btn2,
-   att2_btn3
+INFO:LIT:243 - Logical network avr_rx_busy_IBUF has no load.
+INFO:LIT:395 - The above info message is repeated 5 more times for the following
+   (max. 5 shown):
+   spi_mosi_IBUF,
+   spi_ss_IBUF,
+   spi_sck_IBUF,
+   cclk_IBUF,
+   avr_tx_IBUF
    To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:LIT:244 - All of the single ended outputs in this design are using slew
@@ -142,12 +169,15 @@ INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
    1.260 Volts)
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
+INFO:Place:834 - Only a subset of IOs are locked. Out of 64 IOs, 60 are locked
+   and 4 are not locked. If you would like to print the names of these IOs,
+   please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
 INFO:Pack:1650 - Map created a placed design.
 
 Section 4 - Removed Logic Summary
 ---------------------------------
   12 block(s) removed
-   5 block(s) optimized away
+  29 block(s) optimized away
    6 signal(s) removed
 
 Section 5 - Removed Logic
@@ -158,18 +188,18 @@ The trimmed logic reported below is either:
    2. part of disabled logic
    3. a side-effect of other trimmed logic
 
-The signal "spi_miso" is unused and has been removed.
- Unused block "spi_miso_OBUFT" (TRI) removed.
-The signal "spi_channel[3]" is unused and has been removed.
- Unused block "spi_channel_3_OBUFT" (TRI) removed.
-The signal "spi_channel[2]" is unused and has been removed.
- Unused block "spi_channel_2_OBUFT" (TRI) removed.
-The signal "spi_channel[1]" is unused and has been removed.
- Unused block "spi_channel_1_OBUFT" (TRI) removed.
 The signal "spi_channel[0]" is unused and has been removed.
  Unused block "spi_channel_0_OBUFT" (TRI) removed.
+The signal "spi_channel[1]" is unused and has been removed.
+ Unused block "spi_channel_1_OBUFT" (TRI) removed.
+The signal "spi_miso" is unused and has been removed.
+ Unused block "spi_miso_OBUFT" (TRI) removed.
+The signal "spi_channel[2]" is unused and has been removed.
+ Unused block "spi_channel_2_OBUFT" (TRI) removed.
 The signal "avr_rx" is unused and has been removed.
  Unused block "avr_rx_OBUFT" (TRI) removed.
+The signal "spi_channel[3]" is unused and has been removed.
+ Unused block "spi_channel_3_OBUFT" (TRI) removed.
 Unused block "avr_rx" (PAD) removed.
 Unused block "spi_channel[0]" (PAD) removed.
 Unused block "spi_channel[1]" (PAD) removed.
@@ -183,6 +213,30 @@ GND 		XST_GND
 VCC 		XST_VCC
 GND 		alu/adder/XST_GND
 VCC 		alu/adder/XST_VCC
+GND 		p1l1am/XST_GND
+VCC 		p1l1am/XST_VCC
+GND 		p1l1am/ledmanager/XST_GND
+VCC 		p1l1am/ledmanager/XST_VCC
+GND 		p1l2am/XST_GND
+VCC 		p1l2am/XST_VCC
+GND 		p1l2am/ledmanager/XST_GND
+VCC 		p1l2am/ledmanager/XST_VCC
+GND 		p1l3am/XST_GND
+VCC 		p1l3am/XST_VCC
+GND 		p1l3am/ledmanager/XST_GND
+VCC 		p1l3am/ledmanager/XST_VCC
+GND 		p2l1am/XST_GND
+VCC 		p2l1am/XST_VCC
+GND 		p2l1am/ledmanager/XST_GND
+VCC 		p2l1am/ledmanager/XST_VCC
+GND 		p2l2am/XST_GND
+VCC 		p2l2am/XST_VCC
+GND 		p2l2am/ledmanager/XST_GND
+VCC 		p2l2am/ledmanager/XST_VCC
+GND 		p2l3am/XST_GND
+VCC 		p2l3am/XST_VCC
+GND 		p2l3am/ledmanager/XST_GND
+VCC 		p2l3am/ledmanager/XST_VCC
 GND 		reset_cond/XST_GND
 
 To enable printing of redundant blocks removed and signals merged, set the
@@ -195,10 +249,34 @@ Section 6 - IOB Properties
 | IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
 |                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| att1[0]                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| att1[1]                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| att1[2]                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| att1_btn1                          | IOB              | INPUT     | LVTTL                |       |          |      |              | PULLDOWN |          |
+| att1_btn2                          | IOB              | INPUT     | LVTTL                |       |          |      |              | PULLDOWN |          |
+| att1_btn3                          | IOB              | INPUT     | LVTTL                |       |          |      |              | PULLDOWN |          |
+| att2[0]                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| att2[1]                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| att2[2]                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| att2_btn1                          | IOB              | INPUT     | LVTTL                |       |          |      |              | PULLDOWN |          |
+| att2_btn2                          | IOB              | INPUT     | LVTTL                |       |          |      |              | PULLDOWN |          |
+| att2_btn3                          | IOB              | INPUT     | LVTTL                |       |          |      |              | PULLDOWN |          |
 | avr_rx_busy                        | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | avr_tx                             | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | cclk                               | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | clk                                | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| def1[0]                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| def1[1]                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| def1[2]                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| def1_btn1                          | IOB              | INPUT     | LVTTL                |       |          |      |              | PULLDOWN |          |
+| def1_btn2                          | IOB              | INPUT     | LVTTL                |       |          |      |              | PULLDOWN |          |
+| def1_btn3                          | IOB              | INPUT     | LVTTL                |       |          |      |              | PULLDOWN |          |
+| def2[0]                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| def2[1]                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| def2[2]                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| def2_btn1                          | IOB              | INPUT     | LVTTL                |       |          |      |              | PULLDOWN |          |
+| def2_btn2                          | IOB              | INPUT     | LVTTL                |       |          |      |              | PULLDOWN |          |
+| def2_btn3                          | IOB              | INPUT     | LVTTL                |       |          |      |              | PULLDOWN |          |
 | led[0]                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | led[1]                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | led[2]                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
@@ -207,7 +285,31 @@ Section 6 - IOB Properties
 | led[5]                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | led[6]                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | led[7]                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| led_strip1[0]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| led_strip1[1]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| led_strip1[2]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| led_strip2[0]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| led_strip2[1]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| led_strip2[2]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| leds[0]                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| leds[1]                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| leds[2]                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| leds[3]                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | rst_n                              | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| seven_seg1[0]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| seven_seg1[1]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| seven_seg1[2]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| seven_seg1[3]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| seven_seg1[4]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| seven_seg1[5]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| seven_seg1[6]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| seven_seg2[0]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| seven_seg2[1]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| seven_seg2[2]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| seven_seg2[3]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| seven_seg2[4]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| seven_seg2[5]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| seven_seg2[6]                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | spi_mosi                           | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | spi_sck                            | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | spi_ss                             | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |

@@ -1,8 +1,33 @@
 Release 14.7 Drc P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Tue Nov 26 08:30:51 2019
+Tue Dec  3 22:01:52 2019
 
 drc -z mojo_top_0_routed.ncd mojo_top_0.pcf
 
-DRC detected 0 errors and 0 warnings.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   p1l1am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   p1l2am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   p1l3am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   p2l1am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   p2l2am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   p2l3am/M_strip_state_q[1]_M_bangsequence_q[2]_Mux_107_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+DRC detected 0 errors and 6 warnings.  Please see the previously displayed
+individual error or warning messages for more details.

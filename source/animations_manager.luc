@@ -1,0 +1,431 @@
+module animations_manager (
+
+    // THIS MODULE AIMS TO SEND THE RIGHT COLOR, THE RIGHT PIXELS TO LEDMANAGER, LANE SPECIFIC. PLEASE ADJUST ACCORDING TO LENGTH OF STRIP
+    input clk, // clock
+    input rst,  // reset
+    input game_state[3],
+    input defense_status,
+    input color_selection,
+    input start, // start flag
+
+    //output out 
+    output out
+  ) {
+  
+   
+  .clk(clk) {
+    .rst(rst)
+    {
+      ledmanager ledmanager;
+      dff timeanimed[90];
+      dff blinking_counter[3];
+      dff strip_state[2];
+    }
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes out of reset at the same time.
+    fsm bangsequence = {ENTRANCE, FIRSTBANG, SECONDBANG, BLINK, DEFENSE, DEFENSIVEFIRSTBANG, RESET};
+    
+  }
+  
+  const LED_COUNT = 24;
+  const ANIMATION = 1250000;
+  
+  // COLOR REFERENCE
+  const REDSHORT = c{8b0, 8b1, 8b0};
+  const BLUESHORT = c{8b1,8b0,8b0};  //used in clashing, 
+  const GREENSHORT = c{8b0,8b0,8b1};
+
+  
+  
+  const NOANIMATION = 30000;//60000;
+  sig requested_sequence[24*40];
+  sig pause_delay[60];
+  sig update_status;
+  sig color_choice[24];
+  
+  // TAKE NOTE, update_status MIGHT BE AN ISSUE DURING TESTING
+  
+  
+
+  always {
+  
+  if (color_selection == 1){
+      color_choice = REDSHORT;
+    }
+  else
+    {
+      color_choice = BLUESHORT;
+    }  
+    
+  
+    
+  // -----------------------------------custom add on part from gabriel----------------------------------------------------
+  case(game_state){
+      b000:
+        strip_state.d = b01;  // player does not attack: no input
+      b001:
+        strip_state.d = b01;  // player does not attack: no input
+      b010:
+        strip_state.d = b01;  // player does not attack: no input
+      b011:
+        strip_state.d = b01;  // player does not attack: no input
+      b100:
+        strip_state.d = b10;  // player attacks, opp no def no att: successful att
+      b101:
+        strip_state.d = b00;  // player attacks, opp att: both attack
+      b110:
+        strip_state.d = b11;  // player attacks, opp def: failed attack
+      b111:
+        strip_state.d = b00;  // player attacks, opp att and def, animate both attack: both attack
+    }
+  // -----------------------------------custom add on part from gabriel----------------------------------------------------
+  
+  case(strip_state.q)
+    {
+    // case of both attacking at same time (completed successfully)
+    b00:
+      case(bangsequence.q){
+        bangsequence.ENTRANCE:
+          pause_delay = ANIMATION;
+          update_status= 1;
+          requested_sequence = (LED_COUNT/2)x{color_choice};
+          timeanimed.d = timeanimed.q + 1;
+          ledmanager.update = update_status;
+          ledmanager.sequence = requested_sequence;
+          ledmanager.animation_delay = pause_delay;
+          if (timeanimed.q == 75000000)
+          {
+            timeanimed.d = 0;
+            bangsequence.d = bangsequence.SECONDBANG;
+          
+          }
+          
+            
+        bangsequence.FIRSTBANG:
+          pause_delay = ANIMATION;
+          update_status= 1;
+          requested_sequence = (LED_COUNT/2)x{c{color_choice}};
+          timeanimed.d = timeanimed.q + 1;
+          ledmanager.update = update_status;
+          ledmanager.sequence = requested_sequence;
+          ledmanager.animation_delay = pause_delay;
+          if (timeanimed.q == 75000000)
+          {
+            timeanimed.d = 0;
+            bangsequence.d = bangsequence.SECONDBANG;
+          
+          }
+        bangsequence.SECONDBANG:
+          
+            // this part is supposed to blink 3 times whitelight!
+            pause_delay = NOANIMATION;
+            update_status = 1;
+            requested_sequence = (LED_COUNT/2)x{c{8b1,8b1,8b1}};
+            timeanimed.d = timeanimed.q + 1;
+            ledmanager.update = update_status;
+            ledmanager.sequence = requested_sequence;
+            ledmanager.animation_delay = pause_delay;
+            if (timeanimed.q == 37500000)
+            {
+              timeanimed.d = 0;
+              blinking_counter.d = blinking_counter.q + 1;
+              bangsequence.d = bangsequence.BLINK;
+            
+            }
+            
+        bangsequence.BLINK:
+            pause_delay = NOANIMATION;
+            update_status = 1;
+            requested_sequence = (LED_COUNT/2)x{c{8b0,8b0,8b0}};
+            timeanimed.d = timeanimed.q + 1;
+            ledmanager.update = update_status;
+            ledmanager.sequence = requested_sequence;
+            ledmanager.animation_delay = pause_delay;
+            if (timeanimed.q == 37500000)
+            {
+              
+              if (blinking_counter.q == 4){
+                timeanimed.d = 0;
+                bangsequence.d = bangsequence.RESET;
+              }
+              else{
+                timeanimed.d = 0;
+                bangsequence.d = bangsequence.SECONDBANG;
+              
+              }  
+            }
+            
+        bangsequence.RESET:
+            pause_delay = NOANIMATION;
+            update_status = 1;
+            requested_sequence = LED_COUNTx{c{8b0,8b0,8b0}};
+            ledmanager.update = update_status;
+            ledmanager.sequence = requested_sequence;
+            ledmanager.animation_delay = pause_delay;
+            if (start)
+            {
+              bangsequence.d = bangsequence.ENTRANCE;
+            }
+            else{
+              bangsequence.d = bangsequence.RESET;
+            }
+
+            
+        default:
+          pause_delay = NOANIMATION;
+          ledmanager.update = 0;
+          ledmanager.sequence = 24b0;
+          ledmanager.animation_delay = pause_delay;
+          
+        }
+    // Case of no input (or just defense). Successfully Completed
+    b01:
+       
+       case(bangsequence.q){
+        
+        bangsequence.ENTRANCE:
+          if (defense_status == 1)
+            {
+              bangsequence.d = bangsequence.DEFENSE;
+            }
+          else{
+              bangsequence.d = bangsequence.RESET;
+            }
+        
+          
+        bangsequence.DEFENSE:
+          pause_delay = NOANIMATION;
+          update_status = 1;
+          requested_sequence = c{20x{c{8b0,8b0,8b0}},4x{c{8b0,8b0,8b1}}};
+          timeanimed.d = timeanimed.q + 1;
+          ledmanager.update = update_status;
+          ledmanager.sequence = requested_sequence;
+          ledmanager.animation_delay = pause_delay;
+          if (timeanimed.q == 450000000)
+          {
+            timeanimed.d = 0;
+            bangsequence.d = bangsequence.RESET;
+          
+          }
+            
+        bangsequence.RESET:
+          pause_delay = NOANIMATION;
+          update_status = 1;
+          requested_sequence = LED_COUNTx{c{8b0,8b0,8b0}};
+          ledmanager.update = update_status;
+          ledmanager.sequence = requested_sequence;
+          ledmanager.animation_delay = pause_delay;
+          if (start)
+            {
+              bangsequence.d = bangsequence.ENTRANCE;
+            }
+            else{
+              bangsequence.d = bangsequence.RESET;
+            }
+
+            
+        default:
+          pause_delay = NOANIMATION;
+          ledmanager.update = 0;
+          ledmanager.sequence = 24b0;
+          ledmanager.animation_delay = pause_delay;
+          out = ledmanager.out;      
+        }
+         
+             
+        
+    // case of successful attack (added defense mechanism successfully)
+    b10:
+       case(bangsequence.q){
+        
+        bangsequence.ENTRANCE:
+          if (defense_status == 1)
+            {
+              bangsequence.d = bangsequence.DEFENSE;
+            }
+          else{
+              bangsequence.d = bangsequence.FIRSTBANG;
+            }
+        
+        bangsequence.FIRSTBANG:
+          pause_delay = ANIMATION;
+          update_status= 1;
+          requested_sequence = (LED_COUNT)x{c{color_choice}};
+          timeanimed.d = timeanimed.q + 1;
+          ledmanager.update = update_status;
+          ledmanager.sequence = requested_sequence;
+          ledmanager.animation_delay = pause_delay;
+          if (timeanimed.q == 300000000)
+          {
+            timeanimed.d = 0;
+            bangsequence.d = bangsequence.RESET;
+          
+          }
+            
+            
+        bangsequence.DEFENSE:
+          pause_delay = NOANIMATION;
+          update_status = 1;
+          requested_sequence = 4x{c{8b0,8b0,8b1}};
+          timeanimed.d = timeanimed.q + 1;
+          ledmanager.update = update_status;
+          ledmanager.sequence = requested_sequence;
+          ledmanager.animation_delay = pause_delay;
+          if (timeanimed.q == 150000000)
+          {
+            timeanimed.d = 0;
+            bangsequence.d = bangsequence.DEFENSIVEFIRSTBANG;
+          
+          }
+            
+        bangsequence.DEFENSIVEFIRSTBANG:
+          pause_delay = ANIMATION;
+          update_status= 1;
+          requested_sequence = c{20x{c{color_choice}},4x{c{8b0,8b0,8b1}}};
+          timeanimed.d = timeanimed.q + 1;
+          ledmanager.update = update_status;
+          ledmanager.sequence = requested_sequence;
+          ledmanager.animation_delay = pause_delay;
+          if (timeanimed.q == 300000000)
+          {
+            timeanimed.d = 0;
+            bangsequence.d = bangsequence.RESET;
+          
+          }
+    
+        bangsequence.RESET:
+          pause_delay = NOANIMATION;
+          update_status = 1;
+          requested_sequence = LED_COUNTx{c{8b0,8b0,8b0}};
+          ledmanager.update = update_status;
+          ledmanager.sequence = requested_sequence;
+          ledmanager.animation_delay = pause_delay;
+          if (start)
+            {
+              bangsequence.d = bangsequence.ENTRANCE;
+            }
+            else{
+              bangsequence.d = bangsequence.RESET;
+            }
+
+        }
+        
+        default:
+          pause_delay = ANIMATION;
+          ledmanager.update = 0;
+          ledmanager.sequence = 24b0;
+          ledmanager.animation_delay = pause_delay;
+          out = ledmanager.out;  
+          
+               
+      
+    // case of failed attack due to enemy defense. Defense mechanism added successfully!
+    b11:
+      case(bangsequence.q){
+        bangsequence.ENTRANCE:
+          if (defense_status == 1)
+            {
+              bangsequence.d = bangsequence.DEFENSE;
+            }
+          else{
+              bangsequence.d = bangsequence.FIRSTBANG;
+            }
+            
+        bangsequence.FIRSTBANG:
+                    
+          pause_delay = NOANIMATION;
+          requested_sequence = c{4x{c{8b0,8b0,8b1}},20x{c{8b0,8b0,8b0}}};
+          update_status = 0;
+          timeanimed.d = timeanimed.q + 1;
+          ledmanager.update = update_status;
+          ledmanager.sequence = requested_sequence;
+          ledmanager.animation_delay = pause_delay;
+          if (timeanimed.q == 150000000)
+          {
+            timeanimed.d = 0;
+            bangsequence.d = bangsequence.SECONDBANG;
+          
+          }
+  
+          
+        bangsequence.SECONDBANG:
+          pause_delay = ANIMATION;
+          update_status= 1;
+          requested_sequence = c{4x{c{8b0,8b0,8b1}},20x{c{color_choice}}};
+          timeanimed.d = timeanimed.q + 1;
+          ledmanager.update = update_status;
+          ledmanager.sequence = requested_sequence;
+          ledmanager.animation_delay = pause_delay;
+          if (timeanimed.q == 150000000)
+          {
+            timeanimed.d = 0;
+            bangsequence.d = bangsequence.RESET;
+          
+          }
+            
+        bangsequence.DEFENSE:
+          pause_delay = NOANIMATION;
+          update_status = 1;
+          requested_sequence = c{4x{c{8b0,8b0,8b1}},16x{c{8b0,8b0,8b0}},4x{c{8b0,8b0,8b1}}};
+          timeanimed.d = timeanimed.q + 1;
+          ledmanager.update = update_status;
+          ledmanager.sequence = requested_sequence;
+          ledmanager.animation_delay = pause_delay;
+          if (timeanimed.q == 150000000)
+          {
+            timeanimed.d = 0;
+            bangsequence.d = bangsequence.DEFENSIVEFIRSTBANG;
+          
+          }
+            
+        bangsequence.DEFENSIVEFIRSTBANG:
+          pause_delay = ANIMATION;
+          update_status= 1;
+          requested_sequence = c{4x{c{8b0,8b0,8b1}},16x{c{color_choice}},4x{c{8b0,8b0,8b1}}};
+          timeanimed.d = timeanimed.q + 1;
+          ledmanager.update = update_status;
+          ledmanager.sequence = requested_sequence;
+          ledmanager.animation_delay = pause_delay;
+          if (timeanimed.q == 300000000)
+          {
+            timeanimed.d = 0;
+            bangsequence.d = bangsequence.RESET;
+          
+          }
+          
+        bangsequence.RESET:
+          pause_delay = NOANIMATION;
+          update_status = 1;
+          requested_sequence = LED_COUNTx{c{8b0,8b0,8b0}};
+          ledmanager.update = update_status;
+          ledmanager.sequence = requested_sequence;
+          ledmanager.animation_delay = pause_delay;
+          if (start)
+            {
+              bangsequence.d = bangsequence.ENTRANCE;
+            }
+            else{
+              bangsequence.d = bangsequence.RESET;
+            }
+
+          
+        
+        default:
+          pause_delay = NOANIMATION;
+          ledmanager.update = 0;
+          ledmanager.sequence = 24b0;
+          ledmanager.animation_delay = pause_delay;
+          out = ledmanager.out;       
+ 
+      }
+    }
+  
+  
+      out = ledmanager.out;
+
+    
+    
+  
+    
+  }
+}

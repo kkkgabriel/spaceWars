@@ -2,9 +2,17 @@
 <DARoots Version="1" Minor="26">
   <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
-    <File Path="$PSRCDIR/constrs_1/imports/components/mojo.ucf">
+    <File Path="$PSRCDIR/constrs_1/imports/kkk/Desktop/attacker_defender_backup/attacker_defender/constraint/custom.ucf">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../home/kkk/Apps/mojo-ide-B1.3.6/library/components/mojo.ucf"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../constraint/custom.ucf"/>
+        <Attr Name="ImportTime" Val="1575409945"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/constrs_1/imports/kkk/Apps/mojo-ide-B1.3.6/library/components/mojo.ucf">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../Apps/mojo-ide-B1.3.6/library/components/mojo.ucf"/>
         <Attr Name="ImportTime" Val="1477337389"/>
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInImplementation" Val="1"/>

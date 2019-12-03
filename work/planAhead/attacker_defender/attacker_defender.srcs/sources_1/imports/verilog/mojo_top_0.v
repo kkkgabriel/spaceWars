@@ -16,8 +16,16 @@ module mojo_top_0 (
     input avr_tx,
     output reg avr_rx,
     input avr_rx_busy,
+    output reg [3:0] leds,
+    output reg [2:0] att1,
+    output reg [2:0] att2,
+    output reg [2:0] def1,
+    output reg [2:0] def2,
     output reg [7:0] led,
-    input on_button,
+    output reg [2:0] led_strip1,
+    output reg [2:0] led_strip2,
+    output reg [6:0] seven_seg1,
+    output reg [6:0] seven_seg2,
     input att1_btn1,
     input att1_btn2,
     input att1_btn3,
@@ -43,19 +51,117 @@ module mojo_top_0 (
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
   );
+  wire [1-1:0] M_p1l1am_out;
+  reg [3-1:0] M_p1l1am_game_state;
+  reg [1-1:0] M_p1l1am_defense_status;
+  reg [1-1:0] M_p1l1am_color_selection;
+  reg [1-1:0] M_p1l1am_start;
+  animations_manager_2 p1l1am (
+    .clk(clk),
+    .rst(rst),
+    .game_state(M_p1l1am_game_state),
+    .defense_status(M_p1l1am_defense_status),
+    .color_selection(M_p1l1am_color_selection),
+    .start(M_p1l1am_start),
+    .out(M_p1l1am_out)
+  );
+  wire [1-1:0] M_p1l2am_out;
+  reg [3-1:0] M_p1l2am_game_state;
+  reg [1-1:0] M_p1l2am_defense_status;
+  reg [1-1:0] M_p1l2am_color_selection;
+  reg [1-1:0] M_p1l2am_start;
+  animations_manager_2 p1l2am (
+    .clk(clk),
+    .rst(rst),
+    .game_state(M_p1l2am_game_state),
+    .defense_status(M_p1l2am_defense_status),
+    .color_selection(M_p1l2am_color_selection),
+    .start(M_p1l2am_start),
+    .out(M_p1l2am_out)
+  );
+  wire [1-1:0] M_p1l3am_out;
+  reg [3-1:0] M_p1l3am_game_state;
+  reg [1-1:0] M_p1l3am_defense_status;
+  reg [1-1:0] M_p1l3am_color_selection;
+  reg [1-1:0] M_p1l3am_start;
+  animations_manager_2 p1l3am (
+    .clk(clk),
+    .rst(rst),
+    .game_state(M_p1l3am_game_state),
+    .defense_status(M_p1l3am_defense_status),
+    .color_selection(M_p1l3am_color_selection),
+    .start(M_p1l3am_start),
+    .out(M_p1l3am_out)
+  );
+  wire [1-1:0] M_p2l1am_out;
+  reg [3-1:0] M_p2l1am_game_state;
+  reg [1-1:0] M_p2l1am_defense_status;
+  reg [1-1:0] M_p2l1am_color_selection;
+  reg [1-1:0] M_p2l1am_start;
+  animations_manager_2 p2l1am (
+    .clk(clk),
+    .rst(rst),
+    .game_state(M_p2l1am_game_state),
+    .defense_status(M_p2l1am_defense_status),
+    .color_selection(M_p2l1am_color_selection),
+    .start(M_p2l1am_start),
+    .out(M_p2l1am_out)
+  );
+  wire [1-1:0] M_p2l2am_out;
+  reg [3-1:0] M_p2l2am_game_state;
+  reg [1-1:0] M_p2l2am_defense_status;
+  reg [1-1:0] M_p2l2am_color_selection;
+  reg [1-1:0] M_p2l2am_start;
+  animations_manager_2 p2l2am (
+    .clk(clk),
+    .rst(rst),
+    .game_state(M_p2l2am_game_state),
+    .defense_status(M_p2l2am_defense_status),
+    .color_selection(M_p2l2am_color_selection),
+    .start(M_p2l2am_start),
+    .out(M_p2l2am_out)
+  );
+  wire [1-1:0] M_p2l3am_out;
+  reg [3-1:0] M_p2l3am_game_state;
+  reg [1-1:0] M_p2l3am_defense_status;
+  reg [1-1:0] M_p2l3am_color_selection;
+  reg [1-1:0] M_p2l3am_start;
+  animations_manager_2 p2l3am (
+    .clk(clk),
+    .rst(rst),
+    .game_state(M_p2l3am_game_state),
+    .defense_status(M_p2l3am_defense_status),
+    .color_selection(M_p2l3am_color_selection),
+    .start(M_p2l3am_start),
+    .out(M_p2l3am_out)
+  );
   wire [16-1:0] M_m_aout;
   wire [16-1:0] M_m_bout;
   wire [2-1:0] M_m_timer;
   wire [4-1:0] M_m_leds;
+  wire [4-1:0] M_m_s1;
+  wire [4-1:0] M_m_s2;
+  wire [3-1:0] M_m_att1;
+  wire [3-1:0] M_m_def1;
+  wire [3-1:0] M_m_att2;
+  wire [3-1:0] M_m_def2;
+  wire [4-1:0] M_m_p1l1;
+  wire [4-1:0] M_m_p1l2;
+  wire [4-1:0] M_m_p1l3;
+  wire [4-1:0] M_m_p2l1;
+  wire [4-1:0] M_m_p2l2;
+  wire [4-1:0] M_m_p2l3;
+  wire [1-1:0] M_m_animation_start;
   reg [16-1:0] M_m_wd;
-  reg [4-1:0] M_m_wa;
-  reg [4-1:0] M_m_ra;
-  reg [4-1:0] M_m_rb;
+  reg [5-1:0] M_m_wa;
+  reg [5-1:0] M_m_ra;
+  reg [5-1:0] M_m_rb;
   reg [16-1:0] M_m_alit;
   reg [16-1:0] M_m_blit;
   reg [1-1:0] M_m_asel;
   reg [1-1:0] M_m_bsel;
-  memory_2 m (
+  reg [1-1:0] M_m_we;
+  memory_8 m (
     .clk(clk),
     .rst(rst),
     .wd(M_m_wd),
@@ -66,38 +172,89 @@ module mojo_top_0 (
     .blit(M_m_blit),
     .asel(M_m_asel),
     .bsel(M_m_bsel),
+    .we(M_m_we),
     .aout(M_m_aout),
     .bout(M_m_bout),
     .timer(M_m_timer),
-    .leds(M_m_leds)
+    .leds(M_m_leds),
+    .s1(M_m_s1),
+    .s2(M_m_s2),
+    .att1(M_m_att1),
+    .def1(M_m_def1),
+    .att2(M_m_att2),
+    .def2(M_m_def2),
+    .p1l1(M_m_p1l1),
+    .p1l2(M_m_p1l2),
+    .p1l3(M_m_p1l3),
+    .p2l1(M_m_p2l1),
+    .p2l2(M_m_p2l2),
+    .p2l3(M_m_p2l3),
+    .animation_start(M_m_animation_start)
   );
-  localparam IDLE_state = 5'd0;
-  localparam OFF_state = 5'd1;
-  localparam CAL_TEMP_SCORE1_state = 5'd2;
-  localparam CAL_TEMP_SCORE2_state = 5'd3;
-  localparam FLIP_TEMP_SCORE1_state = 5'd4;
-  localparam FLIP_TEMP_SCORE2_state = 5'd5;
-  localparam ADD_SCORE1_state = 5'd6;
-  localparam ADD_SCORE2_state = 5'd7;
-  localparam CAL_P1L1A_ACTION_state = 5'd8;
-  localparam CAL_P1L1D_ACTION_state = 5'd9;
-  localparam CAL_P2L1A_ACTION_state = 5'd10;
-  localparam CAL_P2L1D_ACTION_state = 5'd11;
-  localparam CAL_P1L2A_ACTION_state = 5'd12;
-  localparam CAL_P1L2D_ACTION_state = 5'd13;
-  localparam CAL_P2L2A_ACTION_state = 5'd14;
-  localparam CAL_P2L2D_ACTION_state = 5'd15;
-  localparam CAL_P1L3A_ACTION_state = 5'd16;
-  localparam CAL_P1L3D_ACTION_state = 5'd17;
-  localparam CAL_P2L3A_ACTION_state = 5'd18;
-  localparam CAL_P2L3D_ACTION_state = 5'd19;
-  localparam CLEAR_ATT1_state = 5'd20;
-  localparam CLEAR_ATT2_state = 5'd21;
-  localparam CLEAR_DEF1_state = 5'd22;
-  localparam CLEAR_DEF2_state = 5'd23;
+  localparam IDLE_state = 6'd0;
+  localparam OFF_state = 6'd1;
+  localparam CAL_TEMP_SCORE1_state = 6'd2;
+  localparam CAL_TEMP_SCORE2_state = 6'd3;
+  localparam FLIP_TEMP_SCORE1_state = 6'd4;
+  localparam FLIP_TEMP_SCORE2_state = 6'd5;
+  localparam ADD_SCORE1_state = 6'd6;
+  localparam ADD_SCORE2_state = 6'd7;
+  localparam CAL_L1B3_state = 6'd8;
+  localparam SHIFT_L1B3_state = 6'd9;
+  localparam CAL_L1B2_state = 6'd10;
+  localparam SHIFT_L1B2_state = 6'd11;
+  localparam ADD_L1B2_state = 6'd12;
+  localparam CAL_L1B1_state = 6'd13;
+  localparam SHIFT_L1B1_state = 6'd14;
+  localparam ADD_L1B1_state = 6'd15;
+  localparam CAL_L1B0_state = 6'd16;
+  localparam ADD_L1B0_state = 6'd17;
+  localparam ST_L1_state = 6'd18;
+  localparam CAL_L2B3_state = 6'd19;
+  localparam SHIFT_L2B3_state = 6'd20;
+  localparam CAL_L2B2_state = 6'd21;
+  localparam SHIFT_L2B2_state = 6'd22;
+  localparam ADD_L2B2_state = 6'd23;
+  localparam CAL_L2B1_state = 6'd24;
+  localparam SHIFT_L2B1_state = 6'd25;
+  localparam ADD_L2B1_state = 6'd26;
+  localparam CAL_L2B0_state = 6'd27;
+  localparam ADD_L2B0_state = 6'd28;
+  localparam ST_L2_state = 6'd29;
+  localparam CAL_L3B3_state = 6'd30;
+  localparam SHIFT_L3B3_state = 6'd31;
+  localparam CAL_L3B2_state = 6'd32;
+  localparam SHIFT_L3B2_state = 6'd33;
+  localparam ADD_L3B2_state = 6'd34;
+  localparam CAL_L3B1_state = 6'd35;
+  localparam SHIFT_L3B1_state = 6'd36;
+  localparam ADD_L3B1_state = 6'd37;
+  localparam CAL_L3B0_state = 6'd38;
+  localparam ADD_L3B0_state = 6'd39;
+  localparam ST_L3_state = 6'd40;
+  localparam ANIMATION_START_state = 6'd41;
+  localparam ANIMATION_END_state = 6'd42;
+  localparam CLEAR_ATT1_state = 6'd43;
+  localparam CLEAR_ATT2_state = 6'd44;
+  localparam CLEAR_DEF1_state = 6'd45;
+  localparam CLEAR_DEF2_state = 6'd46;
   
-  reg [4:0] M_state_d, M_state_q = IDLE_state;
+  reg [5:0] M_state_d, M_state_q = IDLE_state;
   reg [25:0] M_sclk_d, M_sclk_q = 1'h0;
+  
+  wire [7-1:0] M_seg1_segs;
+  reg [4-1:0] M_seg1_char;
+  seven_seg_9 seg1 (
+    .char(M_seg1_char),
+    .segs(M_seg1_segs)
+  );
+  
+  wire [7-1:0] M_seg2_segs;
+  reg [4-1:0] M_seg2_char;
+  seven_seg_9 seg2 (
+    .char(M_seg2_char),
+    .segs(M_seg2_segs)
+  );
   
   wire [16-1:0] M_alu_result;
   wire [1-1:0] M_alu_z;
@@ -106,7 +263,7 @@ module mojo_top_0 (
   reg [16-1:0] M_alu_a;
   reg [16-1:0] M_alu_b;
   reg [6-1:0] M_alu_fn;
-  alu_3 alu (
+  alu_11 alu (
     .a(M_alu_a),
     .b(M_alu_b),
     .fn(M_alu_fn),
@@ -121,15 +278,13 @@ module mojo_top_0 (
     M_sclk_d = M_sclk_q;
     
     M_sclk_d = M_sclk_q + 1'h1;
-    if (M_sclk_q == 26'h2faf081) begin
-      M_sclk_d = 1'h0;
-    end
     M_reset_cond_in = ~rst_n;
     rst = M_reset_cond_out;
     spi_miso = 1'bz;
     spi_channel = 4'bzzzz;
     avr_rx = 1'bz;
-    if (M_sclk_q == 26'h2faf080) begin
+    if (M_sclk_q == 26'h0000001) begin
+      M_m_we = 1'h0;
       M_m_wa = 1'h1;
       M_m_ra = 1'h1;
       M_m_rb = 1'h0;
@@ -138,155 +293,183 @@ module mojo_top_0 (
       M_m_asel = 1'h0;
       M_m_bsel = 1'h1;
       M_alu_fn = 6'h00;
+      M_m_we = 1'h1;
     end else begin
       
       case (M_state_q)
         IDLE_state: begin
-          if (1'h0) begin
-            M_m_wa = 2'h2;
-            M_m_ra = 2'h2;
+          if (M_m_timer == 2'h0 && M_sclk_q == 26'h0000000) begin
+            M_m_we = 1'h0;
+            M_m_wa = 4'h9;
+            M_m_ra = 4'h9;
             M_m_rb = 1'h0;
             M_m_alit = 1'h0;
             M_m_blit = 1'h1;
-            M_m_asel = 1'h0;
+            M_m_asel = 1'h1;
             M_m_bsel = 1'h1;
-            M_alu_fn = 6'h02;
-            M_state_d = OFF_state;
+            M_alu_fn = 6'h00;
+            M_m_we = 1'h1;
+            M_state_d = ANIMATION_END_state;
           end else begin
-            if (M_m_timer == 2'h0) begin
+            if (M_m_timer == 2'h1 && M_sclk_q == 26'h0000000) begin
+              M_m_we = 1'h0;
               M_m_wa = 4'h9;
               M_m_ra = 4'h9;
               M_m_rb = 1'h0;
               M_m_alit = 1'h0;
-              M_m_blit = 1'h1;
+              M_m_blit = 2'h3;
               M_m_asel = 1'h1;
               M_m_bsel = 1'h1;
               M_alu_fn = 6'h00;
-              M_state_d = CLEAR_ATT1_state;
+              M_m_we = 1'h1;
+              M_state_d = IDLE_state;
             end else begin
-              if (M_m_timer == 2'h1) begin
+              if (M_m_timer == 2'h2 && M_sclk_q == 26'h0000000) begin
+                M_m_we = 1'h0;
                 M_m_wa = 4'h9;
                 M_m_ra = 4'h9;
                 M_m_rb = 1'h0;
                 M_m_alit = 1'h0;
-                M_m_blit = 2'h3;
+                M_m_blit = 3'h7;
                 M_m_asel = 1'h1;
                 M_m_bsel = 1'h1;
                 M_alu_fn = 6'h00;
+                M_m_we = 1'h1;
                 M_state_d = IDLE_state;
               end else begin
-                if (M_m_timer == 2'h2) begin
+                if (M_m_timer == 2'h3 && M_sclk_q == 26'h0000000) begin
+                  M_m_we = 1'h0;
                   M_m_wa = 4'h9;
                   M_m_ra = 4'h9;
                   M_m_rb = 1'h0;
                   M_m_alit = 1'h0;
-                  M_m_blit = 3'h7;
+                  M_m_blit = 4'hf;
                   M_m_asel = 1'h1;
                   M_m_bsel = 1'h1;
                   M_alu_fn = 6'h00;
-                  M_state_d = IDLE_state;
+                  M_m_we = 1'h1;
+                  M_state_d = CAL_TEMP_SCORE1_state;
                 end else begin
-                  if (M_m_timer == 2'h3) begin
-                    M_m_wa = 4'h9;
-                    M_m_ra = 4'h9;
+                  if (att1_btn1) begin
+                    M_m_we = 1'h0;
+                    M_m_wa = 2'h3;
+                    M_m_ra = 1'h0;
                     M_m_rb = 1'h0;
-                    M_m_alit = 1'h0;
-                    M_m_blit = 4'hf;
+                    M_m_alit = 16'h0004;
+                    M_m_blit = 1'h0;
                     M_m_asel = 1'h1;
                     M_m_bsel = 1'h1;
                     M_alu_fn = 6'h00;
-                    M_state_d = CAL_TEMP_SCORE1_state;
+                    M_m_we = 1'h1;
+                    M_state_d = IDLE_state;
                   end else begin
-                    if (att1_btn1) begin
+                    if (att1_btn2) begin
+                      M_m_we = 1'h0;
                       M_m_wa = 2'h3;
                       M_m_ra = 1'h0;
                       M_m_rb = 1'h0;
-                      M_m_alit = 3'h4;
+                      M_m_alit = 16'h0002;
                       M_m_blit = 1'h0;
                       M_m_asel = 1'h1;
                       M_m_bsel = 1'h1;
                       M_alu_fn = 6'h00;
+                      M_m_we = 1'h1;
                       M_state_d = IDLE_state;
                     end else begin
-                      if (att1_btn2) begin
+                      if (att1_btn3) begin
+                        M_m_we = 1'h0;
                         M_m_wa = 2'h3;
                         M_m_ra = 1'h0;
                         M_m_rb = 1'h0;
-                        M_m_alit = 3'h2;
+                        M_m_alit = 16'h0001;
                         M_m_blit = 1'h0;
                         M_m_asel = 1'h1;
                         M_m_bsel = 1'h1;
                         M_alu_fn = 6'h00;
+                        M_m_we = 1'h1;
                         M_state_d = IDLE_state;
                       end else begin
-                        if (att1_btn3) begin
-                          M_m_wa = 2'h3;
+                        if (def1_btn1) begin
+                          M_m_we = 1'h0;
+                          M_m_wa = 3'h4;
                           M_m_ra = 1'h0;
                           M_m_rb = 1'h0;
-                          M_m_alit = 3'h1;
+                          M_m_alit = 3'h4;
                           M_m_blit = 1'h0;
                           M_m_asel = 1'h1;
                           M_m_bsel = 1'h1;
                           M_alu_fn = 6'h00;
+                          M_m_we = 1'h1;
                           M_state_d = IDLE_state;
                         end else begin
-                          if (def1_btn1) begin
+                          if (def1_btn2) begin
+                            M_m_we = 1'h0;
                             M_m_wa = 3'h4;
                             M_m_ra = 1'h0;
                             M_m_rb = 1'h0;
-                            M_m_alit = 3'h4;
+                            M_m_alit = 3'h2;
                             M_m_blit = 1'h0;
                             M_m_asel = 1'h1;
                             M_m_bsel = 1'h1;
                             M_alu_fn = 6'h00;
+                            M_m_we = 1'h1;
                             M_state_d = IDLE_state;
                           end else begin
-                            if (def1_btn2) begin
+                            if (def1_btn3) begin
+                              M_m_we = 1'h0;
                               M_m_wa = 3'h4;
                               M_m_ra = 1'h0;
                               M_m_rb = 1'h0;
-                              M_m_alit = 3'h2;
+                              M_m_alit = 3'h1;
                               M_m_blit = 1'h0;
                               M_m_asel = 1'h1;
                               M_m_bsel = 1'h1;
                               M_alu_fn = 6'h00;
+                              M_m_we = 1'h1;
                               M_state_d = IDLE_state;
                             end else begin
-                              if (def1_btn3) begin
-                                M_m_wa = 3'h4;
+                              if (att2_btn1) begin
+                                M_m_we = 1'h0;
+                                M_m_wa = 1'h0;
                                 M_m_ra = 1'h0;
                                 M_m_rb = 1'h0;
-                                M_m_alit = 3'h1;
+                                M_m_alit = 3'h4;
                                 M_m_blit = 1'h0;
                                 M_m_asel = 1'h1;
                                 M_m_bsel = 1'h1;
                                 M_alu_fn = 6'h00;
+                                M_m_we = 1'h1;
                                 M_state_d = IDLE_state;
                               end else begin
-                                if (att2_btn1) begin
-                                  M_m_wa = 3'h6;
+                                if (att2_btn2) begin
+                                  M_m_we = 1'h0;
+                                  M_m_wa = 1'h0;
                                   M_m_ra = 1'h0;
                                   M_m_rb = 1'h0;
-                                  M_m_alit = 3'h4;
+                                  M_m_alit = 3'h2;
                                   M_m_blit = 1'h0;
                                   M_m_asel = 1'h1;
                                   M_m_bsel = 1'h1;
                                   M_alu_fn = 6'h00;
+                                  M_m_we = 1'h1;
                                   M_state_d = IDLE_state;
                                 end else begin
-                                  if (att2_btn2) begin
-                                    M_m_wa = 3'h6;
+                                  if (att2_btn3) begin
+                                    M_m_we = 1'h0;
+                                    M_m_wa = 1'h0;
                                     M_m_ra = 1'h0;
                                     M_m_rb = 1'h0;
-                                    M_m_alit = 3'h2;
+                                    M_m_alit = 3'h1;
                                     M_m_blit = 1'h0;
                                     M_m_asel = 1'h1;
                                     M_m_bsel = 1'h1;
                                     M_alu_fn = 6'h00;
+                                    M_m_we = 1'h1;
                                     M_state_d = IDLE_state;
                                   end else begin
-                                    if (att2_btn3) begin
-                                      M_m_wa = 3'h6;
+                                    if (def2_btn1) begin
+                                      M_m_we = 1'h0;
+                                      M_m_wa = 2'h2;
                                       M_m_ra = 1'h0;
                                       M_m_rb = 1'h0;
                                       M_m_alit = 3'h1;
@@ -294,51 +477,46 @@ module mojo_top_0 (
                                       M_m_asel = 1'h1;
                                       M_m_bsel = 1'h1;
                                       M_alu_fn = 6'h00;
+                                      M_m_we = 1'h1;
                                       M_state_d = IDLE_state;
                                     end else begin
-                                      if (def2_btn1) begin
-                                        M_m_wa = 3'h7;
+                                      if (def2_btn2) begin
+                                        M_m_we = 1'h0;
+                                        M_m_wa = 2'h2;
                                         M_m_ra = 1'h0;
                                         M_m_rb = 1'h0;
-                                        M_m_alit = 3'h4;
+                                        M_m_alit = 16'h0002;
                                         M_m_blit = 1'h0;
                                         M_m_asel = 1'h1;
                                         M_m_bsel = 1'h1;
                                         M_alu_fn = 6'h00;
+                                        M_m_we = 1'h1;
                                         M_state_d = IDLE_state;
                                       end else begin
-                                        if (def2_btn2) begin
-                                          M_m_wa = 3'h7;
+                                        if (def2_btn3) begin
+                                          M_m_we = 1'h0;
+                                          M_m_wa = 2'h2;
                                           M_m_ra = 1'h0;
                                           M_m_rb = 1'h0;
-                                          M_m_alit = 3'h2;
+                                          M_m_alit = 16'h0004;
                                           M_m_blit = 1'h0;
                                           M_m_asel = 1'h1;
                                           M_m_bsel = 1'h1;
                                           M_alu_fn = 6'h00;
+                                          M_m_we = 1'h1;
                                           M_state_d = IDLE_state;
                                         end else begin
-                                          if (def2_btn3) begin
-                                            M_m_wa = 3'h7;
-                                            M_m_ra = 1'h0;
-                                            M_m_rb = 1'h0;
-                                            M_m_alit = 3'h1;
-                                            M_m_blit = 1'h0;
-                                            M_m_asel = 1'h1;
-                                            M_m_bsel = 1'h1;
-                                            M_alu_fn = 6'h00;
-                                            M_state_d = IDLE_state;
-                                          end else begin
-                                            M_m_wa = 4'hf;
-                                            M_m_ra = 4'hf;
-                                            M_m_rb = 4'hf;
-                                            M_m_alit = 1'h0;
-                                            M_m_blit = 1'h0;
-                                            M_m_asel = 1'h0;
-                                            M_m_bsel = 1'h0;
-                                            M_alu_fn = 6'h00;
-                                            M_state_d = IDLE_state;
-                                          end
+                                          M_m_we = 1'h0;
+                                          M_m_wa = 5'h1f;
+                                          M_m_ra = 5'h1f;
+                                          M_m_rb = 5'h1f;
+                                          M_m_alit = 1'h0;
+                                          M_m_blit = 1'h0;
+                                          M_m_asel = 1'h0;
+                                          M_m_bsel = 1'h0;
+                                          M_alu_fn = 6'h00;
+                                          M_m_we = 1'h0;
+                                          M_state_d = IDLE_state;
                                         end
                                       end
                                     end
@@ -357,28 +535,33 @@ module mojo_top_0 (
           end
         end
         CAL_TEMP_SCORE1_state: begin
+          M_m_we = 1'h0;
           M_m_wa = 4'ha;
           M_m_ra = 2'h3;
-          M_m_rb = 3'h7;
+          M_m_rb = 2'h2;
           M_m_alit = 1'h0;
           M_m_blit = 1'h0;
           M_m_asel = 1'h0;
           M_m_bsel = 1'h0;
-          M_alu_fn = 6'h32;
+          M_alu_fn = 6'h33;
+          M_m_we = 1'h1;
           M_state_d = CAL_TEMP_SCORE2_state;
         end
         CAL_TEMP_SCORE2_state: begin
+          M_m_we = 1'h0;
           M_m_wa = 4'hb;
-          M_m_ra = 3'h6;
+          M_m_ra = 1'h0;
           M_m_rb = 3'h4;
           M_m_alit = 1'h0;
           M_m_blit = 1'h0;
           M_m_asel = 1'h0;
           M_m_bsel = 1'h0;
-          M_alu_fn = 6'h32;
+          M_alu_fn = 6'h33;
+          M_m_we = 1'h1;
           M_state_d = FLIP_TEMP_SCORE1_state;
         end
         FLIP_TEMP_SCORE1_state: begin
+          M_m_we = 1'h0;
           M_m_wa = 4'ha;
           M_m_ra = 4'ha;
           M_m_rb = 1'h0;
@@ -387,9 +570,11 @@ module mojo_top_0 (
           M_m_asel = 1'h0;
           M_m_bsel = 1'h1;
           M_alu_fn = 6'h16;
+          M_m_we = 1'h1;
           M_state_d = FLIP_TEMP_SCORE2_state;
         end
         FLIP_TEMP_SCORE2_state: begin
+          M_m_we = 1'h0;
           M_m_wa = 4'hb;
           M_m_ra = 4'hb;
           M_m_rb = 1'h0;
@@ -398,9 +583,11 @@ module mojo_top_0 (
           M_m_asel = 1'h0;
           M_m_bsel = 1'h1;
           M_alu_fn = 6'h16;
+          M_m_we = 1'h1;
           M_state_d = ADD_SCORE1_state;
         end
         ADD_SCORE1_state: begin
+          M_m_we = 1'h0;
           M_m_wa = 3'h5;
           M_m_ra = 3'h5;
           M_m_rb = 4'ha;
@@ -409,9 +596,11 @@ module mojo_top_0 (
           M_m_asel = 1'h0;
           M_m_bsel = 1'h0;
           M_alu_fn = 6'h00;
+          M_m_we = 1'h1;
           M_state_d = ADD_SCORE2_state;
         end
         ADD_SCORE2_state: begin
+          M_m_we = 1'h0;
           M_m_wa = 4'h8;
           M_m_ra = 4'h8;
           M_m_rb = 4'hb;
@@ -420,45 +609,466 @@ module mojo_top_0 (
           M_m_asel = 1'h0;
           M_m_bsel = 1'h0;
           M_alu_fn = 6'h00;
-          M_state_d = CAL_P1L1A_ACTION_state;
+          M_m_we = 1'h1;
+          M_state_d = CAL_L1B3_state;
         end
-        CAL_P1L1A_ACTION_state: begin
-          M_state_d = CAL_P1L1D_ACTION_state;
+        CAL_L1B3_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 4'hf;
+          M_m_ra = 3'h4;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 3'h4;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h33;
+          M_m_we = 1'h1;
+          M_state_d = SHIFT_L1B3_state;
         end
-        CAL_P1L1D_ACTION_state: begin
-          M_state_d = CAL_P2L1A_ACTION_state;
+        SHIFT_L1B3_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 4'hf;
+          M_m_ra = 4'hf;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 2'h3;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h20;
+          M_m_we = 1'h1;
+          M_state_d = CAL_L1B2_state;
         end
-        CAL_P2L1A_ACTION_state: begin
-          M_state_d = CAL_P2L1D_ACTION_state;
+        CAL_L1B2_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 5'h10;
+          M_m_ra = 2'h3;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 3'h4;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h33;
+          M_m_we = 1'h1;
+          M_state_d = SHIFT_L1B2_state;
         end
-        CAL_P2L1D_ACTION_state: begin
-          M_state_d = CAL_P1L2A_ACTION_state;
+        SHIFT_L1B2_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 5'h10;
+          M_m_ra = 5'h10;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 2'h2;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h20;
+          M_m_we = 1'h1;
+          M_state_d = ADD_L1B2_state;
         end
-        CAL_P1L2A_ACTION_state: begin
-          M_state_d = CAL_P1L2D_ACTION_state;
+        ADD_L1B2_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 4'hf;
+          M_m_ra = 4'hf;
+          M_m_rb = 5'h10;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h0;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h0;
+          M_alu_fn = 6'h00;
+          M_m_we = 1'h1;
+          M_state_d = CAL_L1B1_state;
         end
-        CAL_P1L2D_ACTION_state: begin
-          M_state_d = CAL_P2L2A_ACTION_state;
+        CAL_L1B1_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 5'h10;
+          M_m_ra = 2'h2;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h1;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h33;
+          M_m_we = 1'h1;
+          M_state_d = SHIFT_L1B1_state;
         end
-        CAL_P2L2A_ACTION_state: begin
-          M_state_d = CAL_P2L2D_ACTION_state;
+        SHIFT_L1B1_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 5'h10;
+          M_m_ra = 5'h10;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h1;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h20;
+          M_m_we = 1'h1;
+          M_state_d = ADD_L1B1_state;
         end
-        CAL_P2L2D_ACTION_state: begin
-          M_state_d = CAL_P1L3A_ACTION_state;
+        ADD_L1B1_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 4'hf;
+          M_m_ra = 4'hf;
+          M_m_rb = 5'h10;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h0;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h0;
+          M_alu_fn = 6'h00;
+          M_m_we = 1'h1;
+          M_state_d = CAL_L1B0_state;
         end
-        CAL_P1L3A_ACTION_state: begin
-          M_state_d = CAL_P1L3D_ACTION_state;
+        CAL_L1B0_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 5'h10;
+          M_m_ra = 1'h0;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h1;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h33;
+          M_m_we = 1'h1;
+          M_state_d = ADD_L1B0_state;
         end
-        CAL_P1L3D_ACTION_state: begin
-          M_state_d = CAL_P2L3A_ACTION_state;
+        ADD_L1B0_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 4'hf;
+          M_m_ra = 4'hf;
+          M_m_rb = 5'h10;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h0;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h0;
+          M_alu_fn = 6'h00;
+          M_m_we = 1'h1;
+          M_state_d = ST_L1_state;
         end
-        CAL_P2L3A_ACTION_state: begin
-          M_state_d = CAL_P2L3D_ACTION_state;
+        ST_L1_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 5'h1e;
+          M_m_ra = 4'hf;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h0;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h00;
+          M_m_we = 1'h1;
+          M_state_d = CAL_L2B3_state;
         end
-        CAL_P2L3D_ACTION_state: begin
+        CAL_L2B3_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 4'hf;
+          M_m_ra = 3'h4;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 2'h2;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h33;
+          M_m_we = 1'h1;
+          M_state_d = SHIFT_L2B3_state;
+        end
+        SHIFT_L2B3_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 4'hf;
+          M_m_ra = 4'hf;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 2'h3;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h20;
+          M_m_we = 1'h1;
+          M_state_d = CAL_L2B2_state;
+        end
+        CAL_L2B2_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 5'h10;
+          M_m_ra = 2'h3;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 2'h2;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h33;
+          M_m_we = 1'h1;
+          M_state_d = SHIFT_L2B2_state;
+        end
+        SHIFT_L2B2_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 5'h10;
+          M_m_ra = 5'h10;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 2'h2;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h20;
+          M_m_we = 1'h1;
+          M_state_d = ADD_L2B2_state;
+        end
+        ADD_L2B2_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 4'hf;
+          M_m_ra = 4'hf;
+          M_m_rb = 5'h10;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h0;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h0;
+          M_alu_fn = 6'h00;
+          M_m_we = 1'h1;
+          M_state_d = CAL_L2B1_state;
+        end
+        CAL_L2B1_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 5'h10;
+          M_m_ra = 2'h2;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 2'h2;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h33;
+          M_m_we = 1'h1;
+          M_state_d = SHIFT_L2B1_state;
+        end
+        SHIFT_L2B1_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 5'h10;
+          M_m_ra = 5'h10;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h1;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h20;
+          M_m_we = 1'h1;
+          M_state_d = ADD_L2B1_state;
+        end
+        ADD_L2B1_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 4'hf;
+          M_m_ra = 4'hf;
+          M_m_rb = 5'h10;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h0;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h0;
+          M_alu_fn = 6'h00;
+          M_m_we = 1'h1;
+          M_state_d = CAL_L2B0_state;
+        end
+        CAL_L2B0_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 5'h10;
+          M_m_ra = 1'h0;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 2'h2;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h33;
+          M_m_we = 1'h1;
+          M_state_d = ADD_L2B0_state;
+        end
+        ADD_L2B0_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 4'hf;
+          M_m_ra = 4'hf;
+          M_m_rb = 5'h10;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h0;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h0;
+          M_alu_fn = 6'h00;
+          M_m_we = 1'h1;
+          M_state_d = ST_L2_state;
+        end
+        ST_L2_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 4'hd;
+          M_m_ra = 4'hf;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h0;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h00;
+          M_m_we = 1'h1;
+          M_state_d = CAL_L3B3_state;
+        end
+        CAL_L3B3_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 4'hf;
+          M_m_ra = 3'h4;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h1;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h33;
+          M_m_we = 1'h1;
+          M_state_d = SHIFT_L3B3_state;
+        end
+        SHIFT_L3B3_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 4'hf;
+          M_m_ra = 4'hf;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 2'h3;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h20;
+          M_m_we = 1'h1;
+          M_state_d = CAL_L3B2_state;
+        end
+        CAL_L3B2_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 5'h10;
+          M_m_ra = 2'h3;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h1;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h33;
+          M_m_we = 1'h1;
+          M_state_d = SHIFT_L3B2_state;
+        end
+        SHIFT_L3B2_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 5'h10;
+          M_m_ra = 5'h10;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 2'h2;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h20;
+          M_m_we = 1'h1;
+          M_state_d = ADD_L3B2_state;
+        end
+        ADD_L3B2_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 4'hf;
+          M_m_ra = 4'hf;
+          M_m_rb = 5'h10;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h0;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h0;
+          M_alu_fn = 6'h00;
+          M_m_we = 1'h1;
+          M_state_d = CAL_L3B1_state;
+        end
+        CAL_L3B1_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 5'h10;
+          M_m_ra = 2'h2;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 3'h4;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h33;
+          M_m_we = 1'h1;
+          M_state_d = SHIFT_L3B1_state;
+        end
+        SHIFT_L3B1_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 5'h10;
+          M_m_ra = 5'h10;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h1;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h20;
+          M_m_we = 1'h1;
+          M_state_d = ADD_L3B1_state;
+        end
+        ADD_L3B1_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 4'hf;
+          M_m_ra = 4'hf;
+          M_m_rb = 5'h10;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h0;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h0;
+          M_alu_fn = 6'h00;
+          M_m_we = 1'h1;
+          M_state_d = CAL_L3B0_state;
+        end
+        CAL_L3B0_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 5'h10;
+          M_m_ra = 1'h0;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 3'h4;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h33;
+          M_m_we = 1'h1;
+          M_state_d = ADD_L3B0_state;
+        end
+        ADD_L3B0_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 4'hf;
+          M_m_ra = 4'hf;
+          M_m_rb = 5'h10;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h0;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h0;
+          M_alu_fn = 6'h00;
+          M_m_we = 1'h1;
+          M_state_d = ST_L3_state;
+        end
+        ST_L3_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 4'he;
+          M_m_ra = 4'hf;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h0;
+          M_m_asel = 1'h0;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h00;
+          M_m_we = 1'h1;
+          M_state_d = ANIMATION_START_state;
+        end
+        ANIMATION_START_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 5'h11;
+          M_m_ra = 5'h11;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h1;
+          M_m_blit = 1'h0;
+          M_m_asel = 1'h1;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h00;
+          M_m_we = 1'h1;
+          M_state_d = CLEAR_ATT1_state;
+        end
+        ANIMATION_END_state: begin
+          M_m_we = 1'h0;
+          M_m_wa = 5'h11;
+          M_m_ra = 5'h11;
+          M_m_rb = 1'h0;
+          M_m_alit = 1'h0;
+          M_m_blit = 1'h0;
+          M_m_asel = 1'h1;
+          M_m_bsel = 1'h1;
+          M_alu_fn = 6'h00;
+          M_m_we = 1'h1;
           M_state_d = IDLE_state;
         end
         CLEAR_ATT1_state: begin
+          M_m_we = 1'h0;
           M_m_wa = 2'h3;
           M_m_ra = 2'h3;
           M_m_rb = 1'h0;
@@ -467,20 +1077,24 @@ module mojo_top_0 (
           M_m_asel = 1'h0;
           M_m_bsel = 1'h1;
           M_alu_fn = 6'h21;
+          M_m_we = 1'h1;
           M_state_d = CLEAR_ATT2_state;
         end
         CLEAR_ATT2_state: begin
-          M_m_wa = 3'h6;
-          M_m_ra = 3'h6;
+          M_m_we = 1'h0;
+          M_m_wa = 1'h0;
+          M_m_ra = 1'h0;
           M_m_rb = 1'h0;
           M_m_alit = 1'h0;
           M_m_blit = 2'h3;
           M_m_asel = 1'h0;
           M_m_bsel = 1'h1;
           M_alu_fn = 6'h21;
+          M_m_we = 1'h1;
           M_state_d = CLEAR_DEF1_state;
         end
         CLEAR_DEF1_state: begin
+          M_m_we = 1'h0;
           M_m_wa = 3'h4;
           M_m_ra = 3'h4;
           M_m_rb = 1'h0;
@@ -489,36 +1103,76 @@ module mojo_top_0 (
           M_m_asel = 1'h0;
           M_m_bsel = 1'h1;
           M_alu_fn = 6'h21;
+          M_m_we = 1'h1;
           M_state_d = CLEAR_DEF2_state;
         end
         CLEAR_DEF2_state: begin
-          M_m_wa = 3'h7;
-          M_m_ra = 3'h7;
+          M_m_we = 1'h0;
+          M_m_wa = 2'h2;
+          M_m_ra = 2'h2;
           M_m_rb = 1'h0;
           M_m_alit = 1'h0;
           M_m_blit = 2'h3;
           M_m_asel = 1'h0;
           M_m_bsel = 1'h1;
           M_alu_fn = 6'h21;
+          M_m_we = 1'h1;
           M_state_d = IDLE_state;
         end
         default: begin
-          M_m_wa = 4'hf;
-          M_m_ra = 4'hf;
+          M_m_we = 1'h0;
+          M_m_wa = 5'h1f;
+          M_m_ra = 5'h1f;
           M_m_rb = 1'h0;
           M_m_alit = 1'h0;
           M_m_blit = 1'h0;
           M_m_asel = 1'h0;
           M_m_bsel = 1'h0;
           M_alu_fn = 6'h00;
+          M_m_we = 1'h0;
           M_state_d = IDLE_state;
         end
       endcase
     end
     M_alu_a = M_m_aout;
     M_alu_b = M_m_bout;
-    led = {M_m_leds, 2'h0, M_m_timer};
     M_m_wd = M_alu_result;
+    leds = M_m_p1l3;
+    att1 = M_m_att1;
+    att2 = M_m_att2;
+    def1 = M_m_def1;
+    def2 = M_m_def2;
+    M_seg1_char = M_m_s1;
+    M_seg2_char = M_m_s2;
+    seven_seg1 = M_seg1_segs;
+    seven_seg2 = M_seg2_segs;
+    M_p1l1am_game_state = M_m_p1l1[0+2-:3];
+    M_p1l1am_defense_status = M_m_p1l1[3+0-:1];
+    M_p1l1am_color_selection = 1'h1;
+    M_p1l2am_game_state = M_m_p1l2[0+2-:3];
+    M_p1l2am_defense_status = M_m_p1l2[3+0-:1];
+    M_p1l2am_color_selection = 1'h1;
+    M_p1l3am_game_state = M_m_p1l3[0+2-:3];
+    M_p1l3am_defense_status = M_m_p1l3[3+0-:1];
+    M_p1l3am_color_selection = 1'h1;
+    M_p2l1am_game_state = M_m_p2l1[0+2-:3];
+    M_p2l1am_defense_status = M_m_p2l1[3+0-:1];
+    M_p2l1am_color_selection = 1'h0;
+    M_p2l2am_game_state = M_m_p2l2[0+2-:3];
+    M_p2l2am_defense_status = M_m_p2l2[3+0-:1];
+    M_p2l2am_color_selection = 1'h0;
+    M_p2l3am_game_state = M_m_p2l3[0+2-:3];
+    M_p2l3am_defense_status = M_m_p2l3[3+0-:1];
+    M_p2l3am_color_selection = 1'h0;
+    M_p1l1am_start = M_m_animation_start;
+    M_p1l2am_start = M_m_animation_start;
+    M_p1l3am_start = M_m_animation_start;
+    M_p2l1am_start = M_m_animation_start;
+    M_p2l2am_start = M_m_animation_start;
+    M_p2l3am_start = M_m_animation_start;
+    led_strip1 = {M_p1l1am_out, M_p1l2am_out, M_p1l3am_out};
+    led_strip2 = {M_p2l1am_out, M_p2l2am_out, M_p2l3am_out};
+    led = 8'hff;
   end
   
   always @(posedge clk) begin
